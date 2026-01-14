@@ -24,4 +24,4 @@ RUN pnpm run build || echo "Build script failed, continuing with pre-built dist"
 EXPOSE 8080
 
 # Start server
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/index.cjs"]
