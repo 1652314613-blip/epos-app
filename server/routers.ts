@@ -11,7 +11,6 @@ import { smsRouter } from "./routers/sms";
 import { polishRouter } from "./routers/polish";
 import { authRouter } from "./routers/auth";
 import { exerciseRouter } from "./routers/exercise";
-import { qaRouter } from "./routers/qa";
 
 
 export const appRouter = router({
@@ -47,7 +46,6 @@ export const appRouter = router({
   // AI targeted exercise router
   exercise: exerciseRouter,
   // QA router for learning questions
-  qa: qaRouter,
 
 });
 
