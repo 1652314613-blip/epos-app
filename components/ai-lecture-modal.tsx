@@ -95,8 +95,12 @@ export function AILectureModal({
       let formattedContent = `## ${tag}精讲\n\n`;
       formattedContent += `**问题**: ${question}\n\n`;
 
-      // Handle tRPC response format - the result is in data.result
-      const result = data.result || data;
+      // Handle tRPC response format
+      // The response structure is: { result: { data: { json: {...} } } }
+      let result = data.result?.data?.json || data.result || data;
+      if (!result || typeof result !== 'object') {
+        throw new Error('Invalid response format from API');
+      }
       
       // Extract content from grammar check result
       if (result && result.errors && result.errors.length > 0) {
