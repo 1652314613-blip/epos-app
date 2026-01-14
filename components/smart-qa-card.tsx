@@ -4,7 +4,6 @@ import {
   Text,
   TouchableOpacity,
   Platform,
-  Animated,
   StyleSheet,
 } from "react-native";
 import Animated, {
@@ -30,7 +29,7 @@ interface SmartQACardProps {
   index?: number;
 }
 
-const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
+// Use Animated from react-native-reanimated instead of react-native
 
 export function SmartQACard({ data, index = 0 }: SmartQACardProps) {
   const colors = useColors();
@@ -78,13 +77,13 @@ export function SmartQACard({ data, index = 0 }: SmartQACardProps) {
   const tagStyle = tagColorMap[data.tag];
 
   return (
-    <AnimatedTouchable
-      onPress={handlePress}
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
-      activeOpacity={0.8}
-      style={[animatedStyle]}
-    >
+    <Animated.View style={[animatedStyle]}>
+      <TouchableOpacity
+        onPress={handlePress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        activeOpacity={0.8}
+      >
       <View
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -161,7 +160,8 @@ export function SmartQACard({ data, index = 0 }: SmartQACardProps) {
           <Text style={{ fontSize: 18, color: colors.muted }}>→</Text>
         </View>
       </View>
-    </AnimatedTouchable>
+      </TouchableOpacity>
+    </Animated.View>
   );
 }
 
