@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-native';
 import { useRouter } from 'expo-router';
+import { EposLogo } from '@/components/epos-logo';
+import { useColors } from '@/hooks/use-colors';
 import {
   getAllWrongQuestions,
   getWrongCategories,
@@ -65,10 +67,17 @@ export default function WrongBookScreen() {
     ? questions.filter(q => q.category === selectedCategory)
     : questions;
 
+  const colors = useColors();
+
   return (
     <View className="flex-1 bg-gray-50">
+      {/* Logo */}
+      <View className="bg-white px-4 pt-4 pb-2 border-b border-gray-200">
+        <EposLogo />
+      </View>
+
       {/* Header */}
-      <View className="bg-white px-4 py-6 border-b border-gray-200">
+      <View className="bg-white px-4 py-4 border-b border-gray-200">
         <Text className="text-2xl font-bold text-gray-900">智能诊断中心</Text>
         {stats && (
           <View className="flex-row gap-4 mt-3">
