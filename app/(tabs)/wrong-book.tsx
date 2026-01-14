@@ -3,6 +3,7 @@ import { ScrollView, Text, View, TouchableOpacity, Platform, Alert } from "react
 import * as Haptics from "expo-haptics";
 import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
+import { EposLogo } from "@/components/epos-logo";
 import { router, useFocusEffect } from "expo-router";
 import {
   getWrongBook,
@@ -140,11 +141,14 @@ export default function WrongBookScreen() {
     <ScreenContainer className="bg-background">
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View className="p-6 gap-5">
+          {/* Logo */}
+          <EposLogo />
+
           {/* Header */}
           <View className="pt-4">
             <Text className="text-3xl font-bold text-foreground">智能错题本</Text>
             <Text className="text-base text-muted mt-1">
-              基于艾宾浩斯遗忘曲线的智能复习计划
+              基于艾宾浩斯遭忘曲线的智能复习计划
             </Text>
           </View>
 
