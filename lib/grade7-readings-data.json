@@ -1,0 +1,1284 @@
+[
+  {
+    "id": "7a_u0_1_reading",
+    "grade": 7,
+    "book": "7A",
+    "unit": "0.1",
+    "title": "Starter Unit 1: Hello!",
+    "subtitle": "Hello! Let's Meet New Friends",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "Hello! My name is Jack. I am twelve years old. I live in Beijing. I am a student. Every morning, I say \"Good morning!\" to my family. Greetings are important because they help us make new friends.",
+        "translation": "你好！我叫杰克。我十二岁。我住在北京。我是学生。每天早上，我对家人说“早上好！”问候很重要，因为它们帮助我们交新朋友。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "My name is Jack.",
+            "startIndex": 7,
+            "endIndex": 23,
+            "explanation": "介绍自己时使用“my name is”句型。"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "I am twelve years old.",
+            "startIndex": 24,
+            "endIndex": 46,
+            "explanation": "介绍年龄时用简单现在时的“am”。"
+          },
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "I say \"Good morning!\"",
+            "startIndex": 97,
+            "endIndex": 118,
+            "explanation": "使用简单现在时表达习惯动作。"
+          },
+          {
+            "id": "kp4",
+            "type": "vocabulary",
+            "text": "Greetings",
+            "startIndex": 133,
+            "endIndex": 142,
+            "explanation": "问候语，日常交流常用词。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "This is my friend Lily. She is thirteen years old. She lives in Shanghai. She always says \"Hello!\" when she meets someone new. She likes to learn English and make friends from different places.",
+        "translation": "这是我的朋友莉莉。她十三岁。她住在上海。她遇到新朋友时总是说“你好！”她喜欢学习英语，结交来自不同地方的朋友。",
+        "keyPoints": [
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "She is thirteen years old.",
+            "startIndex": 24,
+            "endIndex": 50,
+            "explanation": "第三人称单数的简单现在时“is”。"
+          },
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "She always says \"Hello!\"",
+            "startIndex": 74,
+            "endIndex": 98,
+            "explanation": "第三人称单数动词加“s”，表示习惯动作。"
+          },
+          {
+            "id": "kp7",
+            "type": "phrase",
+            "text": "make friends",
+            "startIndex": 158,
+            "endIndex": 170,
+            "explanation": "交朋友的常用表达。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "When we meet new people, we use personal pronouns like I, you, he, and she. For example, I am Jack. You are my new friend. He is my brother. She is Lily. These words help us talk about people clearly.",
+        "translation": "当我们遇到新朋友时，我们使用人称代词，比如我、你、他和她。例如，我是杰克。你是我的新朋友。他是我哥哥。她是莉莉。这些词帮助我们清楚地谈论人。",
+        "keyPoints": [
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "personal pronouns like I, you, he, and she",
+            "startIndex": 32,
+            "endIndex": 74,
+            "explanation": "人称代词，代替人名使用。"
+          },
+          {
+            "id": "kp9",
+            "type": "grammar",
+            "text": "I am Jack. You are my new friend.",
+            "startIndex": 89,
+            "endIndex": 122,
+            "explanation": "简单现在时动词“am”和“are”的用法。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "We use the simple present tense to talk about habits and facts. For example, I live in Beijing. Lily lives in Shanghai. We like to say hello and be friendly. Saying hello is a good way to start a conversation!",
+        "translation": "我们用一般现在时谈论习惯和事实。例如，我住在北京。莉莉住在上海。我们喜欢打招呼，友好相处。说“你好”是开始交流的好方法！",
+        "keyPoints": [
+          {
+            "id": "kp10",
+            "type": "grammar",
+            "text": "simple present tense",
+            "startIndex": 11,
+            "endIndex": 31,
+            "explanation": "表示习惯和事实的时态。"
+          },
+          {
+            "id": "kp11",
+            "type": "grammar",
+            "text": "I live in Beijing. Lily lives in Shanghai.",
+            "startIndex": 77,
+            "endIndex": 119,
+            "explanation": "主语为第三人称单数时，动词加“s”。"
+          },
+          {
+            "id": "kp12",
+            "type": "phrase",
+            "text": "say hello",
+            "startIndex": 131,
+            "endIndex": 140,
+            "explanation": "打招呼的常用表达。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7a_u1_reading",
+    "grade": 7,
+    "book": "7A",
+    "unit": "1",
+    "title": "Unit 1: You and Me",
+    "subtitle": "Making New Friends",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "Hello! My name is Lisa. I am thirteen years old and I live in Beijing. Every day, I go to school by bike. I like my school because my teachers are kind and my classmates are friendly. I often ask questions like “What’s your name?” and “Where are you from?” when I meet new people.",
+        "translation": "你好！我叫莉莎。我十三岁，住在北京。每天，我骑自行车去学校。我喜欢我的学校，因为我的老师很友好，同学们也很亲切。当我遇到新朋友时，我经常会问：“你叫什么名字？”和“你来自哪里？”",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "What’s your name?",
+            "startIndex": 212,
+            "endIndex": 229,
+            "explanation": "使用Wh-疑问句来询问对方的名字。"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "I am thirteen years old",
+            "startIndex": 24,
+            "endIndex": 47,
+            "explanation": "简单现在时描述年龄。"
+          },
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "my teachers / my classmates",
+            "startIndex": 0,
+            "endIndex": 27,
+            "explanation": "物主形容词用来表示所属关系。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "Making friends is important. When I meet someone new, I like to ask about their hobbies. For example, I ask, “What do you like to do?” or “Do you play any sports?” These questions help me know more about them and find things we both enjoy.",
+        "translation": "交朋友很重要。当我遇到新朋友时，我喜欢问他们的爱好。例如，我会问：“你喜欢做什么？”或者“你参加什么运动吗？”这些问题帮助我更多地了解他们，找到我们共同喜欢的活动。",
+        "keyPoints": [
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "What do you like to do?",
+            "startIndex": 110,
+            "endIndex": 133,
+            "explanation": "用Wh-疑问句询问对方的兴趣爱好。"
+          },
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "I like to ask",
+            "startIndex": 54,
+            "endIndex": 67,
+            "explanation": "简单现在时表达个人习惯。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "One of my best friends is Tom. He lives near my house. His favorite subject is math, but my favorite subject is English. We often help each other with homework. I like his kindness, and he likes my sense of humor. We enjoy spending time together after school.",
+        "translation": "我最好的朋友之一是汤姆。他住在我家附近。他最喜欢的科目是数学，而我最喜欢的是英语。我们经常互相帮助做作业。我喜欢他的善良，他喜欢我的幽默感。我们喜欢放学后一起玩。",
+        "keyPoints": [
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "His favorite subject / my favorite subject",
+            "startIndex": 0,
+            "endIndex": 42,
+            "explanation": "使用物主形容词表示所属和区分。"
+          },
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "We often help each other",
+            "startIndex": 121,
+            "endIndex": 145,
+            "explanation": "简单现在时描述经常发生的动作。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "Do you want to make new friends? It’s easy! Just smile and ask questions like “Who is your best friend?” or “What do you like?” Remember, showing interest in others is the first step to friendship.",
+        "translation": "你想交新朋友吗？这很简单！只要微笑并问一些问题，比如“谁是你最好的朋友？”或“你喜欢什么？”记住，对别人表现出兴趣是建立友谊的第一步。",
+        "keyPoints": [
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "Who is your best friend?",
+            "startIndex": 79,
+            "endIndex": 103,
+            "explanation": "用Wh-疑问句询问对方的朋友情况。"
+          },
+          {
+            "id": "kp9",
+            "type": "phrase",
+            "text": "It’s easy!",
+            "startIndex": 33,
+            "endIndex": 43,
+            "explanation": "表达某事很简单，鼓励学生尝试。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7a_u2_reading",
+    "grade": 7,
+    "book": "7A",
+    "unit": "2",
+    "title": "Unit 2: We're Family!",
+    "subtitle": "My Big Family",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "This is my family. We are five people in total. My father's name is Mr. Wang. He is a teacher. My mother's name is Mrs. Wang. She is a doctor. These are my parents, and I love them very much.",
+        "translation": "这是我的家。我们一共有五个人。我的爸爸叫王先生，他是一名老师。我的妈妈叫王女士，她是一名医生。这些是我的父母，我非常爱他们。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "This is my family",
+            "startIndex": 0,
+            "endIndex": 17,
+            "explanation": "这里用的是‘This is’，表示近指，指代单数名词“family”。"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "My father's name",
+            "startIndex": 48,
+            "endIndex": 64,
+            "explanation": "所有格’s表示所属关系，比如‘My father's name’表示‘我爸爸的名字’。"
+          },
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "These are my parents",
+            "startIndex": 143,
+            "endIndex": 163,
+            "explanation": "‘These’用于指代复数近距离的名词，这里指‘parents’。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "My older brother is studying in middle school. He is reading a book now. My little sister is playing with her toys in the living room. They are both busy at the moment.",
+        "translation": "我的哥哥正在上中学。他现在正在读书。我的妹妹正在客厅玩她的玩具。他们现在都很忙。",
+        "keyPoints": [
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "He is reading a book now",
+            "startIndex": 47,
+            "endIndex": 71,
+            "explanation": "现在进行时，表示动作正在进行，结构是‘be + 动词-ing’。"
+          },
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "My little sister is playing with her toys",
+            "startIndex": 73,
+            "endIndex": 114,
+            "explanation": "现在进行时，用来描述眼下正在进行的动作。"
+          },
+          {
+            "id": "kp6",
+            "type": "vocabulary",
+            "text": "They are both busy at the moment",
+            "startIndex": 135,
+            "endIndex": 167,
+            "explanation": "‘busy’表示忙碌的，‘at the moment’表示现在，当前。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "That is our family dog. Its name is Lucky. Lucky is sleeping in the corner. Sometimes, Lucky likes to play with my sister and brother. We all love Lucky very much.",
+        "translation": "那是我们的家狗。它的名字叫幸运。幸运正在角落睡觉。有时候，幸运喜欢和我哥哥妹妹玩。我们都非常爱幸运。",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "That is our family dog",
+            "startIndex": 0,
+            "endIndex": 22,
+            "explanation": "‘That’用于指代远距离的单数名词，这里指‘dog’。"
+          },
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "Its name is Lucky",
+            "startIndex": 24,
+            "endIndex": 41,
+            "explanation": "‘Its’是物主代词，表示‘它的’，用于动物或物体。"
+          },
+          {
+            "id": "kp9",
+            "type": "grammar",
+            "text": "Lucky is sleeping",
+            "startIndex": 43,
+            "endIndex": 60,
+            "explanation": "现在进行时，表示动作正在发生。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "This family is very special to me. We help each other every day. Right now, my mother is cooking dinner, and my father is reading the newspaper. Family time is the best time!",
+        "translation": "这个家庭对我来说非常特别。我们每天互相帮助。现在，我妈妈正在做晚饭，我爸爸正在看报纸。家庭时光是最美好的时光！",
+        "keyPoints": [
+          {
+            "id": "kp10",
+            "type": "grammar",
+            "text": "This family is very special to me",
+            "startIndex": 0,
+            "endIndex": 33,
+            "explanation": "‘This’用于指代近距离的单数名词‘family’。"
+          },
+          {
+            "id": "kp11",
+            "type": "grammar",
+            "text": "my mother is cooking dinner",
+            "startIndex": 76,
+            "endIndex": 103,
+            "explanation": "现在进行时，描述正在进行的动作。"
+          },
+          {
+            "id": "kp12",
+            "type": "grammar",
+            "text": "my father is reading the newspaper",
+            "startIndex": 109,
+            "endIndex": 143,
+            "explanation": "现在进行时，表示动作正在进行中。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7a_u3_reading",
+    "grade": 7,
+    "book": "7A",
+    "unit": "3",
+    "title": "Unit 3: My School",
+    "subtitle": "My School and Its Facilities",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "There is a big playground in my school. It is in front of the school building. Many students like to play basketball and football there during break time. How many basketball courts are there? There are two basketball courts near the playground.",
+        "translation": "我的学校有一个很大的操场。它在教学楼的前面。很多学生喜欢在课间在操场上打篮球和踢足球。那里有多少个篮球场？操场附近有两个篮球场。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "There is/are",
+            "startIndex": 0,
+            "endIndex": 12,
+            "explanation": "表示‘有’，用于描述某地存在某物。"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "in front of",
+            "startIndex": 46,
+            "endIndex": 57,
+            "explanation": "表示‘在…前面’，是一个方位介词短语。"
+          },
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "How many basketball courts are there?",
+            "startIndex": 155,
+            "endIndex": 192,
+            "explanation": "用于询问可数名词的数量。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "Inside the school, there is a library on the second floor. It is between the science lab and the computer room. There are many books in the library. How many computers are there in the computer room? There are about twenty computers in the room.",
+        "translation": "学校里面，二楼有一个图书馆。它在科学实验室和计算机教室之间。图书馆里有很多书。计算机教室里有多少台电脑？教室里大约有二十台电脑。",
+        "keyPoints": [
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "on the second floor",
+            "startIndex": 38,
+            "endIndex": 57,
+            "explanation": "表示‘在二楼’，介词短语表示位置。"
+          },
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "between the science lab and the computer room",
+            "startIndex": 65,
+            "endIndex": 110,
+            "explanation": "表示‘在…之间’，用来说明位置关系。"
+          },
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "How many computers are there?",
+            "startIndex": 0,
+            "endIndex": 29,
+            "explanation": "询问可数物品的数量。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "There is also a music room next to the art room. Many students enjoy music class there. How much time do we usually spend in music class every week? We usually spend about two hours in music class.",
+        "translation": "音乐教室在美术教室的旁边。许多学生喜欢在那里上音乐课。我们每周通常在音乐课上花多少时间？我们通常在音乐课上花大约两个小时。",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "next to the art room",
+            "startIndex": 27,
+            "endIndex": 47,
+            "explanation": "表示‘在…旁边’，说明位置。"
+          },
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "How much time do we usually spend?",
+            "startIndex": 0,
+            "endIndex": 34,
+            "explanation": "用于询问不可数名词‘时间’的数量。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "In our school, there are many subjects, such as English, Math, Science, and Art. There is a gym on the first floor. It is behind the library. We often have PE classes there. How many PE classes do you have every week? I have three PE classes every week.",
+        "translation": "我们学校有很多科目，比如英语、数学、科学和美术。一楼有一个体育馆。体育馆在图书馆的后面。我们经常在那里上体育课。你每周有多少节体育课？我每周有三节体育课。",
+        "keyPoints": [
+          {
+            "id": "kp9",
+            "type": "vocabulary",
+            "text": "such as English, Math, Science, and Art",
+            "startIndex": 40,
+            "endIndex": 79,
+            "explanation": "表示‘比如…’，用来列举学校科目。"
+          },
+          {
+            "id": "kp10",
+            "type": "grammar",
+            "text": "behind the library",
+            "startIndex": 122,
+            "endIndex": 140,
+            "explanation": "表示‘在…后面’，描述位置。"
+          },
+          {
+            "id": "kp11",
+            "type": "grammar",
+            "text": "How many PE classes do you have every week?",
+            "startIndex": 174,
+            "endIndex": 217,
+            "explanation": "询问可数名词‘体育课’的数量。"
+          }
+        ]
+      },
+      {
+        "id": "para5",
+        "type": "paragraph",
+        "text": "I like my school because it has many good facilities and interesting subjects. There is always something fun to do or learn here. How about your school? What facilities and subjects do you have?",
+        "translation": "我喜欢我的学校，因为它有很多好的设施和有趣的科目。这里总有好玩的事情可以做或学习。你的学校怎么样？你们学校有什么设施和科目？",
+        "keyPoints": [
+          {
+            "id": "kp12",
+            "type": "phrase",
+            "text": "There is always something fun to do or learn",
+            "startIndex": 79,
+            "endIndex": 123,
+            "explanation": "表示‘总有有趣的事情可以做或学’，表达积极的感受。"
+          },
+          {
+            "id": "kp13",
+            "type": "phrase",
+            "text": "How about your school?",
+            "startIndex": 130,
+            "endIndex": 152,
+            "explanation": "用来询问对方的情况，常用于对话。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7a_u4_reading",
+    "grade": 7,
+    "book": "7A",
+    "unit": "4",
+    "title": "Unit 4: My Favourite Subject",
+    "subtitle": "My Favourite Subject at School",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "At school, I like learning many subjects, but my favourite one is English. I enjoy reading stories and writing essays because it helps me express my ideas clearly. English class is always fun and interesting.",
+        "translation": "在学校里，我喜欢学习很多科目，但我最喜欢的是英语。我喜欢阅读故事和写作文，因为这帮助我清楚地表达自己的想法。英语课总是很有趣，也很吸引人。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "like learning",
+            "startIndex": 13,
+            "endIndex": 26,
+            "explanation": "喜欢做某事，后面用动名词形式"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "enjoy reading stories and writing essays",
+            "startIndex": 77,
+            "endIndex": 117,
+            "explanation": "enjoy后面跟动名词，表示喜欢做某事"
+          },
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "because it helps me express my ideas clearly",
+            "startIndex": 118,
+            "endIndex": 162,
+            "explanation": "使用because引导原因状语从句"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "Math is also an interesting subject. I like solving problems and finding answers. Sometimes, it can be a little difficult, but I love challenging myself. When I solve a hard problem, I feel proud and confident.",
+        "translation": "数学也是一门有趣的科目。我喜欢解决问题和寻找答案。有时候，数学有点难，但我喜欢挑战自己。当我解决一个难题时，我感到自豪和自信。",
+        "keyPoints": [
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "like solving problems",
+            "startIndex": 39,
+            "endIndex": 60,
+            "explanation": "like后面跟动名词，表示喜欢做某事"
+          },
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "love challenging myself",
+            "startIndex": 129,
+            "endIndex": 152,
+            "explanation": "love后面跟动名词，表达热爱做某事"
+          },
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "because it can be a little difficult",
+            "startIndex": 0,
+            "endIndex": 36,
+            "explanation": "because引导原因状语从句"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "On the other hand, I don’t enjoy studying history very much. I find it a bit boring because there are many dates to remember. However, I know history is important because it teaches us about the past.",
+        "translation": "另一方面，我不是很喜欢学习历史。我觉得它有点无聊，因为有很多日期要记。不过，我知道历史很重要，因为它教会我们过去的事情。",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "don’t enjoy studying history",
+            "startIndex": 21,
+            "endIndex": 49,
+            "explanation": "don’t enjoy后面跟动名词，表示不喜欢做某事"
+          },
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "because there are many dates to remember",
+            "startIndex": 84,
+            "endIndex": 124,
+            "explanation": "because引导原因状语从句"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "In my free time, I love practicing sports like basketball and badminton. They are exciting and help me stay healthy. Overall, I think it’s important to enjoy both studying and playing to have a happy school life.",
+        "translation": "在空闲时间，我喜欢练习篮球和羽毛球等运动。它们很刺激，而且帮助我保持健康。总的来说，我认为喜欢学习和运动都很重要，这样才能有快乐的校园生活。",
+        "keyPoints": [
+          {
+            "id": "kp9",
+            "type": "grammar",
+            "text": "love practicing sports",
+            "startIndex": 19,
+            "endIndex": 41,
+            "explanation": "love后面跟动名词，表示热爱做某事"
+          },
+          {
+            "id": "kp10",
+            "type": "grammar",
+            "text": "because they are exciting and help me stay healthy",
+            "startIndex": 0,
+            "endIndex": 50,
+            "explanation": "because引导原因状语从句"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7a_u5_reading",
+    "grade": 7,
+    "book": "7A",
+    "unit": "5",
+    "title": "Unit 5: Fun Clubs",
+    "subtitle": "My Fun Club Experience",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "I can always find time for my hobbies after school. I usually take part in different clubs because I want to learn new skills. Last year, I joined the music club. I could play the piano a little before, but now I can play many songs. Joining the club helped me improve a lot.",
+        "translation": "放学后我总能找到时间来做我的爱好。我通常参加不同的俱乐部，因为我想学习新技能。去年，我加入了音乐俱乐部。我以前能弹一点钢琴，但现在我能弹很多曲子了。加入俱乐部帮助我进步了很多。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "can always find time",
+            "startIndex": 2,
+            "endIndex": 22,
+            "explanation": "表示能力或可能性，‘can’用来表达总能找到时间。"
+          },
+          {
+            "id": "kp2",
+            "type": "adverbs of frequency/phrase",
+            "text": "usually take part in",
+            "startIndex": 54,
+            "endIndex": 74,
+            "explanation": "‘usually’表示频率，‘take part in’表示参加活动。"
+          },
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "could play the piano a little before",
+            "startIndex": 165,
+            "endIndex": 201,
+            "explanation": "‘could’用于过去的能力，表示之前能弹一点钢琴。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "My friend Li Mei often joins the sports club. She can run very fast and plays basketball well. She usually practices every day after school. Sometimes, I could join her, but I am not very good at sports. Instead, I enjoy art club activities more.",
+        "translation": "我的朋友李梅经常参加体育俱乐部。她能跑得非常快，篮球打得也很好。她通常每天放学后练习。有时我能加入她们，但我运动不太好。相反，我更喜欢美术俱乐部的活动。",
+        "keyPoints": [
+          {
+            "id": "kp4",
+            "type": "adverbs of frequency/phrase",
+            "text": "often joins the sports club",
+            "startIndex": 17,
+            "endIndex": 44,
+            "explanation": "‘often’表示经常，‘joins’是加入的意思。"
+          },
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "can run very fast",
+            "startIndex": 50,
+            "endIndex": 67,
+            "explanation": "‘can’表示能力，说明她跑得很快。"
+          },
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "Sometimes, I could join her",
+            "startIndex": 141,
+            "endIndex": 168,
+            "explanation": "‘could’表示有时过去或可能的能力。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "In the art club, I can draw and paint. I usually work on my pictures on weekends. The club sometimes organizes competitions, and I always want to join them. Last month, I took part in a drawing contest and won a small prize. It was exciting!",
+        "translation": "在美术俱乐部，我能画画和绘画。我通常在周末完成我的作品。俱乐部有时组织比赛，我总是想参加。上个月，我参加了一次绘画比赛，并赢得了一个小奖品。那真令人兴奋！",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "can draw and paint",
+            "startIndex": 19,
+            "endIndex": 37,
+            "explanation": "‘can’表示能力，说明我能画画和绘画。"
+          },
+          {
+            "id": "kp8",
+            "type": "adverbs of frequency",
+            "text": "usually work on my pictures",
+            "startIndex": 41,
+            "endIndex": 68,
+            "explanation": "‘usually’表示通常的频率。"
+          },
+          {
+            "id": "kp9",
+            "type": "phrase",
+            "text": "take part in a drawing contest",
+            "startIndex": 0,
+            "endIndex": 30,
+            "explanation": "‘take part in’表示参加比赛或活动。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "Clubs are a great way to have fun and learn new things. I could not imagine my school life without them. You can try different clubs too! Maybe you can find a hobby you like and make new friends. So, don’t be afraid to join a club and take part in activities.",
+        "translation": "俱乐部是玩得开心和学习新东西的好方法。我无法想象没有它们的校园生活。你也可以尝试不同的俱乐部！也许你会找到喜欢的爱好并结交新朋友。所以，不要害怕加入俱乐部，参加活动。",
+        "keyPoints": [
+          {
+            "id": "kp10",
+            "type": "grammar",
+            "text": "could not imagine",
+            "startIndex": 58,
+            "endIndex": 75,
+            "explanation": "‘could not imagine’表示无法想象，表达否定能力。"
+          },
+          {
+            "id": "kp11",
+            "type": "grammar",
+            "text": "You can try different clubs",
+            "startIndex": 105,
+            "endIndex": 132,
+            "explanation": "‘can’表示能力或建议，鼓励尝试不同的俱乐部。"
+          },
+          {
+            "id": "kp12",
+            "type": "phrase",
+            "text": "join a club and take part in activities",
+            "startIndex": 219,
+            "endIndex": 258,
+            "explanation": "‘join’表示加入，‘take part in’表示参加活动。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7b_u1_reading",
+    "grade": 7,
+    "book": "7B",
+    "unit": "1",
+    "title": "Unit 1: A Trip to Hong Kong",
+    "subtitle": "My Exciting Trip to Hong Kong",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "Last summer, I traveled to Hong Kong with my family. We took a plane and arrived in the city in the morning. The weather was sunny and warm. I felt very excited because it was my first time visiting Hong Kong.",
+        "translation": "去年夏天，我和家人一起去了香港。我们坐飞机，早上到达了这座城市。天气晴朗而温暖。我感到非常兴奋，因为这是我第一次去香港。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "traveled",
+            "startIndex": 15,
+            "endIndex": 23,
+            "explanation": "动词travel的过去式，表示过去发生的动作"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "arrived",
+            "startIndex": 73,
+            "endIndex": 80,
+            "explanation": "动词arrive的过去式，表示过去到达"
+          },
+          {
+            "id": "kp3",
+            "type": "phrase",
+            "text": "Last summer",
+            "startIndex": 0,
+            "endIndex": 11,
+            "explanation": "表示过去时间的短语，用于引出过去发生的事情"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "On the first day, we visited Victoria Peak. We took a tram to the top and saw a wonderful view of the city. The tall buildings and busy streets looked amazing from above. I took many photos to remember this moment.",
+        "translation": "第一天，我们参观了维多利亚峰。我们乘坐有轨电车到山顶，看到城市的美丽景色。高楼大厦和繁忙的街道从上面看起来非常棒。我拍了很多照片来纪念这一刻。",
+        "keyPoints": [
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "visited",
+            "startIndex": 21,
+            "endIndex": 28,
+            "explanation": "动词visit的过去式，表示过去的参观活动"
+          },
+          {
+            "id": "kp5",
+            "type": "phrase",
+            "text": "took a tram",
+            "startIndex": 47,
+            "endIndex": 58,
+            "explanation": "短语，表示乘坐电车"
+          },
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "looked amazing",
+            "startIndex": 144,
+            "endIndex": 158,
+            "explanation": "动词look的过去式，描述过去的景象"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "The next day, we went to a famous market. I bought some souvenirs and ate delicious street food. I tried egg waffles for the first time and loved them! It was a fun and tasty experience.",
+        "translation": "第二天，我们去了一个著名的市场。我买了一些纪念品，还吃了美味的街头小吃。我第一次尝试了鸡蛋仔，非常喜欢！这是一次有趣又美味的经历。",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "went",
+            "startIndex": 17,
+            "endIndex": 21,
+            "explanation": "动词go的不规则过去式，表示过去去某地"
+          },
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "bought",
+            "startIndex": 44,
+            "endIndex": 50,
+            "explanation": "动词buy的不规则过去式，表示过去买东西"
+          },
+          {
+            "id": "kp9",
+            "type": "phrase",
+            "text": "tried egg waffles",
+            "startIndex": 99,
+            "endIndex": 116,
+            "explanation": "尝试鸡蛋仔，描述过去经历"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "In the evening, we walked along the Victoria Harbour. We watched the light show and listened to music. The lights danced on the water, and I felt very happy. It was a perfect end to a wonderful trip.",
+        "translation": "晚上，我们沿着维多利亚港散步。我们观看了灯光秀，听着音乐。灯光在水面上跳动，我感到非常开心。这是一次美好旅行的完美结束。",
+        "keyPoints": [
+          {
+            "id": "kp10",
+            "type": "grammar",
+            "text": "walked",
+            "startIndex": 19,
+            "endIndex": 25,
+            "explanation": "动词walk的过去式，表示过去的动作"
+          },
+          {
+            "id": "kp11",
+            "type": "phrase",
+            "text": "watched the light show",
+            "startIndex": 57,
+            "endIndex": 79,
+            "explanation": "观看灯光秀，描述过去经历"
+          },
+          {
+            "id": "kp12",
+            "type": "grammar",
+            "text": "felt very happy",
+            "startIndex": 141,
+            "endIndex": 156,
+            "explanation": "动词feel的过去式，表达过去的感受"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7b_u2_reading",
+    "grade": 7,
+    "book": "7B",
+    "unit": "2",
+    "title": "Unit 2: Teenagers Should Be Allowed to Choose Their Own Clothes",
+    "subtitle": "Should Teenagers Be Allowed to Choose Their Own Clothes?",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "Many teenagers want to choose their own clothes. They think they can express themselves better by wearing what they like. Parents often say, \"You must wear clean and proper clothes,\" and this rule is important. However, teenagers believe they should be allowed to decide their style because clothing shows their personality.",
+        "translation": "许多青少年想自己选择衣服。他们认为穿自己喜欢的衣服可以更好地表达自己。父母常常说：“你必须穿干净整洁的衣服”，这条规则很重要。然而，青少年认为他们应该被允许决定自己的风格，因为衣服展示了他们的个性。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "must wear clean and proper clothes",
+            "startIndex": 146,
+            "endIndex": 180,
+            "explanation": "“must”表示必须，强调规则的重要性。"
+          },
+          {
+            "id": "kp2",
+            "type": "grammar",
+            "text": "should be allowed to decide",
+            "startIndex": 243,
+            "endIndex": 270,
+            "explanation": "“should be allowed to”表示应该被允许做某事，使用了被动语态。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "In some schools, students are not allowed to wear casual clothes. Uniforms must be worn by all students. This rule is made to keep everyone equal and focused on learning. But many teenagers feel that they can be more confident if they can choose their own clothes. They think rules can be more flexible.",
+        "translation": "在一些学校，学生不被允许穿便装。所有学生必须穿校服。这条规则制定的目的是让每个人平等并专注于学习。但许多青少年觉得如果能选择自己的衣服，他们会更有自信。他们认为规则可以更灵活一些。",
+        "keyPoints": [
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "are not allowed to wear casual clothes",
+            "startIndex": 26,
+            "endIndex": 64,
+            "explanation": "被动语态，表示“不被允许做某事”。"
+          },
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "must be worn by all students",
+            "startIndex": 75,
+            "endIndex": 103,
+            "explanation": "被动语态，强调“必须被穿着”的规定。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "Parents and teachers should listen to teenagers’ opinions. They can set rules, but the rules must be fair. Teenagers should be allowed to choose clothes that are comfortable and suitable for school. When this happens, students feel happier and more respected.",
+        "translation": "父母和老师应该倾听青少年的意见。他们可以制定规则，但规则必须公平。青少年应该被允许选择舒适且适合学校的衣服。当这种情况发生时，学生会感到更快乐和被尊重。",
+        "keyPoints": [
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "should listen to teenagers’ opinions",
+            "startIndex": 21,
+            "endIndex": 57,
+            "explanation": "“should”表示建议或义务，强调应该做的事情。"
+          },
+          {
+            "id": "kp6",
+            "type": "grammar",
+            "text": "should be allowed to choose",
+            "startIndex": 117,
+            "endIndex": 144,
+            "explanation": "被动语态，表达“应该被允许做某事”。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "In the end, rules and permissions are important. Teenagers must understand why some rules exist. At the same time, they can try to explain their ideas politely. Both sides can work together to find a good solution. This way, everyone can be happy and comfortable with their clothes.",
+        "translation": "最后，规则和许可很重要。青少年必须理解一些规则存在的原因。同时，他们可以尝试礼貌地表达自己的想法。双方可以共同努力找到好的解决方案。这样，每个人都能对自己的衣服感到开心和舒适。",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "Teenagers must understand",
+            "startIndex": 49,
+            "endIndex": 74,
+            "explanation": "“must”表示必须，强调责任。"
+          },
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "can try to explain their ideas politely",
+            "startIndex": 120,
+            "endIndex": 159,
+            "explanation": "“can”表示能力或允许，强调可以做某事。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7b_u3_reading",
+    "grade": 7,
+    "book": "7B",
+    "unit": "3",
+    "title": "Unit 3: A Healthy Lifestyle",
+    "subtitle": "Healthy Habits for a Happy Life",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "Everyone wants to be healthy and feel good every day. To do this, you should pay attention to your daily routines. You should always eat breakfast because it gives you energy for the whole day. Also, you should drink plenty of water and avoid too many sugary drinks.",
+        "translation": "每个人都想每天保持健康，感觉良好。为了做到这一点，你应该注意你的日常生活习惯。你应该总是吃早餐，因为它能给你一天的能量。此外，你应该多喝水，避免喝太多含糖饮料。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "grammar",
+            "text": "You should always eat breakfast",
+            "startIndex": 115,
+            "endIndex": 146,
+            "explanation": "使用“should”表示建议，强调吃早餐的重要性。"
+          },
+          {
+            "id": "kp2",
+            "type": "vocabulary",
+            "text": "avoid too many sugary drinks",
+            "startIndex": 237,
+            "endIndex": 265,
+            "explanation": "‘avoid’ 意为避免，这里建议减少含糖饮料的摄入。"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "Exercise is also very important. You should exercise at least three times a week. Sometimes, I go running in the park, but I always try to play sports with my friends. Remember, don’t spend too much time sitting or playing video games.",
+        "translation": "锻炼也非常重要。你应该每周至少锻炼三次。有时候，我会到公园跑步，但我总是尽量和朋友们一起运动。记住，不要长时间坐着或玩电子游戏。",
+        "keyPoints": [
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "You should exercise at least three times a week",
+            "startIndex": 33,
+            "endIndex": 80,
+            "explanation": "使用“should”提出锻炼的建议和频率。"
+          },
+          {
+            "id": "kp4",
+            "type": "imperative",
+            "text": "don’t spend too much time sitting",
+            "startIndex": 178,
+            "endIndex": 211,
+            "explanation": "使用祈使句给出建议或命令，提醒减少久坐。"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "It’s important to have a good sleep schedule. You should usually go to bed before 10 o’clock. If you feel tired during the day, take a short rest. Always avoid using your phone or computer right before sleeping because it can make you feel awake.",
+        "translation": "有一个良好的睡眠时间表很重要。你通常应该在十点前睡觉。如果你白天感到疲倦，可以小睡一会儿。睡觉前一定要避免使用手机或电脑，因为这会让你保持清醒。",
+        "keyPoints": [
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "You should usually go to bed before 10 o’clock",
+            "startIndex": 46,
+            "endIndex": 92,
+            "explanation": "使用“should”加频率副词“usually”来表达建议的睡眠时间。"
+          },
+          {
+            "id": "kp6",
+            "type": "imperative",
+            "text": "Always avoid using your phone or computer right before sleeping",
+            "startIndex": 147,
+            "endIndex": 210,
+            "explanation": "用祈使句强调睡前避免使用电子设备的重要性。"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "In short, a healthy lifestyle is not difficult. You should eat well, exercise regularly, and sleep enough. Try to follow these tips every day, and you will feel happier and stronger!",
+        "translation": "总之，健康的生活方式并不难。你应该吃得好，定期锻炼，睡眠充足。每天尝试遵循这些建议，你会感觉更快乐、更有活力！",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "You should eat well, exercise regularly, and sleep enough",
+            "startIndex": 48,
+            "endIndex": 105,
+            "explanation": "总结使用“should”提出健康生活的建议。"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  },
+  {
+    "id": "7b_u4_reading",
+    "grade": 7,
+    "book": "7B",
+    "unit": "4",
+    "title": "Unit 4: What's the Best Movie Theater?",
+    "subtitle": "Choosing the Best Movie Theater",
+    "content": [
+      {
+        "id": "para1",
+        "type": "paragraph",
+        "text": "Last weekend, my friends and I wanted to watch a movie together. We had three movie theaters to choose from in our town. Each theater is different, so we started to compare them carefully.",
+        "translation": "上个周末，我和朋友们想一起去看电影。我们镇上有三家电影院可以选择。每家电影院都不同，所以我们开始仔细比较它们。",
+        "keyPoints": [
+          {
+            "id": "kp1",
+            "type": "phrase",
+            "text": "to choose from",
+            "startIndex": 93,
+            "endIndex": 107,
+            "explanation": "从……中选择"
+          },
+          {
+            "id": "kp2",
+            "type": "vocabulary",
+            "text": "compare",
+            "startIndex": 165,
+            "endIndex": 172,
+            "explanation": "比较"
+          }
+        ]
+      },
+      {
+        "id": "para2",
+        "type": "paragraph",
+        "text": "The first theater is the biggest. It has the most comfortable seats and the loudest sound system. However, the tickets there are more expensive than the others. The second theater is smaller but cleaner, and its screens are brighter. The third theater is the oldest but has the friendliest staff.",
+        "translation": "第一家电影院是最大的。它有最舒适的座椅和最响亮的音响系统。然而，那里的票比其他电影院更贵。第二家电影院较小但更干净，屏幕更明亮。第三家电影院是最老的，但工作人员最友好。",
+        "keyPoints": [
+          {
+            "id": "kp3",
+            "type": "grammar",
+            "text": "the biggest / the most comfortable / the loudest",
+            "startIndex": 0,
+            "endIndex": 48,
+            "explanation": "最高级形容词，用于描述三者中最突出的一种特征"
+          },
+          {
+            "id": "kp4",
+            "type": "grammar",
+            "text": "more expensive than",
+            "startIndex": 129,
+            "endIndex": 148,
+            "explanation": "比较级，表示票价比其他电影院贵"
+          }
+        ]
+      },
+      {
+        "id": "para3",
+        "type": "paragraph",
+        "text": "After thinking about it, I asked my friends, \"Which theater do you like best?\" One friend said she prefers the second theater because it is cleaner and has better screens. Another friend liked the first theater for its big size and loud sound. I thought the third theater was the best because the staff are so kind.",
+        "translation": "思考之后，我问朋友们：“你们最喜欢哪家电影院？”一个朋友说她更喜欢第二家电影院，因为它更干净，屏幕更好。另一个朋友喜欢第一家电影院，因为它更大，音响更响。我觉得第三家电影院是最好的，因为工作人员非常友好。",
+        "keyPoints": [
+          {
+            "id": "kp5",
+            "type": "grammar",
+            "text": "Which theater do you like best?",
+            "startIndex": 46,
+            "endIndex": 77,
+            "explanation": "疑问句，询问偏好，使用最高级"
+          },
+          {
+            "id": "kp6",
+            "type": "vocabulary",
+            "text": "prefers / liked / thought",
+            "startIndex": 0,
+            "endIndex": 25,
+            "explanation": "表达喜欢和想法的动词"
+          }
+        ]
+      },
+      {
+        "id": "para4",
+        "type": "paragraph",
+        "text": "In the end, we decided to go to the second theater. It may not be the biggest, but it has the cleanest environment and the brightest screens. For us, these things are more important than size or sound. What about you? Which movie theater do you think is the best?",
+        "translation": "最后，我们决定去第二家电影院。它可能不是最大的，但环境最干净，屏幕最明亮。对我们来说，这些比大小或音响更重要。你呢？你认为哪家电影院是最好的？",
+        "keyPoints": [
+          {
+            "id": "kp7",
+            "type": "grammar",
+            "text": "more important than",
+            "startIndex": 167,
+            "endIndex": 186,
+            "explanation": "比较级短语，表示某事比另一事更重要"
+          },
+          {
+            "id": "kp8",
+            "type": "grammar",
+            "text": "What about you? Which movie theater do you think is the best?",
+            "startIndex": 202,
+            "endIndex": 263,
+            "explanation": "用Which引导的疑问句，询问对方的看法和偏好"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [],
+    "grammarPoints": [],
+    "difficulty": "basic"
+  }
+]

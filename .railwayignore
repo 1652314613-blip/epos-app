@@ -1,0 +1,2 @@
+# Don't ignore web-build directory (we need it for static files)
+!web-build/

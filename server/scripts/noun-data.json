@@ -1,0 +1,467 @@
+{
+  "chapter": {
+    "id": "ch1-nouns",
+    "title": "名词 (Nouns)",
+    "order": 1,
+    "pageRange": "2-39",
+    "examWeight": {
+      "percentage": 6,
+      "breakdown": {
+        "词义辨析": 80,
+        "单复数": 12,
+        "所有格": 7,
+        "作定语": 1
+      }
+    },
+    "examTags": [
+      "中考高频",
+      "基础必会"
+    ],
+    "topics": [
+      {
+        "id": "nouns-features",
+        "title": "名词的特征",
+        "category": "Nouns",
+        "gradeLevel": 7,
+        "difficulty": "basic",
+        "examTag": "基础必会",
+        "description": "名词是人类认识事物所使用的基本词汇，主要用来指各种人或事物具体的名称，也可以指抽象概念。",
+        "rules": [
+          "可数名词有复数形式：英语中的大多数名词是可数名词，可数名词后可以加-s或-es构成复数形式",
+          "名词前一般有限定词：名词前可由冠词（如a, an, the）或其他限定词修饰",
+          "名词有自己的格：名词有主格、属格和宾格，属格一般是在其后加-'s或运用of + 名词结构"
+        ],
+        "examples": [
+          {
+            "correct": "two backpacks",
+            "translation": "两个背包",
+            "explanation": "可数名词的复数形式"
+          },
+          {
+            "correct": "many heroes",
+            "translation": "很多英雄",
+            "explanation": "以-o结尾的名词，复数加-es"
+          },
+          {
+            "correct": "a film",
+            "translation": "一部电影",
+            "explanation": "名词前有不定冠词修饰"
+          },
+          {
+            "correct": "Jack's shoes",
+            "translation": "杰克的鞋",
+            "explanation": "名词所有格：-'s形式"
+          },
+          {
+            "correct": "the gate of the school",
+            "translation": "学校大门",
+            "explanation": "名词所有格：of结构"
+          }
+        ],
+        "memoryTips": [
+          "大多数名词都可以数，能数的就能加-s/-es变复数",
+          "名词前面常有'小帮手'：a/an/the/some等限定词",
+          "表示'谁的'用-'s或of结构"
+        ],
+        "relatedTopics": [
+          "nouns-classification",
+          "nouns-plural",
+          "nouns-possessive"
+        ]
+      },
+      {
+        "id": "nouns-classification",
+        "title": "名词的分类",
+        "category": "Nouns",
+        "gradeLevel": 7,
+        "difficulty": "basic",
+        "examTag": "基础必会",
+        "description": "名词可以分为专有名词和普通名词两大类。",
+        "rules": [
+          "专有名词：表示具体的姓名、事物、地名、机构、月份和节日等",
+          "个体名词：用来指单个人或事物的名词",
+          "集体名词：用来指一群人或一些事物总称的名词",
+          "物质名词：用来指无法分为个体的物质、材料的名词",
+          "抽象名词：用来指人或事物的品质、情感、状态、动作等抽象概念的名词"
+        ],
+        "examples": [
+          {
+            "correct": "Green, Michael Jackson",
+            "translation": "人名",
+            "explanation": "专有名词：人名首字母大写"
+          },
+          {
+            "correct": "December, Mother's Day",
+            "translation": "月份和节日",
+            "explanation": "专有名词：时间名称"
+          },
+          {
+            "correct": "book, key, student",
+            "translation": "书、钥匙、学生",
+            "explanation": "个体名词"
+          },
+          {
+            "correct": "army, police, family",
+            "translation": "军队、警察、家庭",
+            "explanation": "集体名词"
+          },
+          {
+            "correct": "water, wind, glass",
+            "translation": "水、风、玻璃",
+            "explanation": "物质名词"
+          },
+          {
+            "correct": "honesty, love, silence",
+            "translation": "诚实、热爱、安静",
+            "explanation": "抽象名词"
+          }
+        ],
+        "memoryTips": [
+          "专有名词：人名、地名、月份、节日等独一无二的要大写首字母",
+          "专有名词中的虚词（a/an/the、in/for等）首字母一般不大写",
+          "普通名词分四类：个体（一个个）、集体（一群）、物质（无法数）、抽象（看不见摸不着）"
+        ],
+        "specialNotes": [
+          "专有名词的第一个字母必须大写，但其中的虚词（如冠词a/an/the、介词in/for等）的第一个字母一般不大写",
+          "当所有字母大写时，冠词、介词等虚词也须大写"
+        ],
+        "relatedTopics": [
+          "nouns-features",
+          "nouns-plural"
+        ]
+      },
+      {
+        "id": "nouns-plural-countable",
+        "title": "可数名词的数",
+        "category": "Nouns",
+        "gradeLevel": 7,
+        "difficulty": "basic",
+        "examTag": "中考高频",
+        "description": "可数名词在表示两个或两个以上的概念时须用复数形式。",
+        "rules": [
+          "规则1：一般名词后加-s，在清辅音后读[s]，在浊辅音或元音后读[z]",
+          "规则2：以s, z, ʃ, ʒ, tʃ, dʒ等音素结尾的名词，后加-es，如果词尾为e，只加-s",
+          "规则3：以'辅音字母 + o'结尾的名词，多数情况下加-es，es读作[z]",
+          "规则4：以f(e)结尾的名词，大多数变f(e)为v，再加-es，ves读作[vz]",
+          "规则5：以'辅音字母 + y'结尾的名词，变y为i，再加-es，ies读作[iz]",
+          "规则6：以-th结尾的名词，一般加-s，th原来读[θ]，加复数词尾s后，多数情况下读[ð]"
+        ],
+        "examples": [
+          {
+            "correct": "stamp—stamps",
+            "translation": "邮票",
+            "explanation": "一般情况加-s"
+          },
+          {
+            "correct": "teacher—teachers",
+            "translation": "教师",
+            "explanation": "一般情况加-s"
+          },
+          {
+            "correct": "class—classes",
+            "translation": "班级",
+            "explanation": "以s结尾加-es"
+          },
+          {
+            "correct": "box—boxes",
+            "translation": "盒子",
+            "explanation": "以x结尾加-es"
+          },
+          {
+            "correct": "tomato—tomatoes",
+            "translation": "西红柿",
+            "explanation": "辅音+o结尾加-es"
+          },
+          {
+            "correct": "hero—heroes",
+            "translation": "英雄",
+            "explanation": "辅音+o结尾加-es"
+          },
+          {
+            "correct": "thief—thieves",
+            "translation": "小偷",
+            "explanation": "f结尾变f为v加-es"
+          },
+          {
+            "correct": "knife—knives",
+            "translation": "刀子",
+            "explanation": "fe结尾变f为v加-es"
+          },
+          {
+            "correct": "baby—babies",
+            "translation": "婴儿",
+            "explanation": "辅音+y结尾变y为i加-es"
+          },
+          {
+            "correct": "city—cities",
+            "translation": "城市",
+            "explanation": "辅音+y结尾变y为i加-es"
+          }
+        ],
+        "memoryTips": [
+          "辅音+o结尾的名词：英雄(hero)爱吃西红柿(tomato)和土豆(potato)，记住这三个加-es",
+          "以f/fe结尾变ves：小偷(thief)的妻子(wife)用刀子(knife)把树叶(leaf)切成两半(half)",
+          "辅音+y结尾：把y变成i，再加-es；元音+y结尾：直接加-s"
+        ],
+        "specialNotes": [
+          "以'辅音字母 + o'结尾的名词，也有以外来词、缩写词、专有名词、复数形式直接加-s的情况，如：piano—pianos, photo—photos",
+          "以'元音字母 + y'结尾的专有名词，复数形式直接加-s，如：Marys, Henrys"
+        ],
+        "relatedTopics": [
+          "nouns-plural-irregular",
+          "nouns-features"
+        ]
+      },
+      {
+        "id": "nouns-plural-irregular",
+        "title": "不规则复数形式",
+        "category": "Nouns",
+        "gradeLevel": 7,
+        "difficulty": "intermediate",
+        "examTag": "中考高频",
+        "description": "有些名词的复数形式不遵循规则变化，需要特别记忆。",
+        "rules": [
+          "变内部元音：foot—feet, man—men, woman—women, tooth—teeth, goose—geese, mouse—mice",
+          "词尾加-ren或-en：child—children, ox—oxen",
+          "单复数同形：fish, deer, sheep, means, Chinese, Japanese",
+          "外来词：phenomenon—phenomena",
+          "集体名词的复数：有些只有复数形式（goods, trousers, glasses），有些有形式变化但表示复数意义（police, people, cattle）"
+        ],
+        "examples": [
+          {
+            "correct": "foot—feet",
+            "translation": "脚",
+            "explanation": "变内部元音"
+          },
+          {
+            "correct": "man—men",
+            "translation": "男人",
+            "explanation": "变内部元音"
+          },
+          {
+            "correct": "child—children",
+            "translation": "孩子们",
+            "explanation": "词尾加-ren"
+          },
+          {
+            "correct": "fish (指条数)",
+            "translation": "鱼",
+            "explanation": "单复数同形"
+          },
+          {
+            "correct": "sheep",
+            "translation": "绵羊",
+            "explanation": "单复数同形"
+          },
+          {
+            "correct": "Chinese",
+            "translation": "中国人",
+            "explanation": "单复数同形"
+          }
+        ],
+        "memoryTips": [
+          "变元音记忆：一男(man)一女(woman)一脚(foot)一牙(tooth)一鹅(goose)一鼠(mouse)",
+          "单复数同形：中国人(Chinese)和日本人(Japanese)爱吃鱼(fish)和羊(sheep)",
+          "集体名词：警察(police)和人们(people)赶着牛(cattle)"
+        ],
+        "specialNotes": [
+          "这类名词一般不用具体的数字修饰，如不说 two trousers，但能说 many trousers, two pairs of trousers等"
+        ],
+        "relatedTopics": [
+          "nouns-plural-countable",
+          "nouns-features"
+        ]
+      },
+      {
+        "id": "nouns-possessive-s",
+        "title": "名词的格：-'s所有格",
+        "category": "Nouns",
+        "gradeLevel": 7,
+        "difficulty": "intermediate",
+        "examTag": "中考高频",
+        "description": "名词的格分为主格、宾格和所有格。名词所有格表示名词之间的所属关系。",
+        "rules": [
+          "一般情况下，在名词词尾加-'s，在清辅音后读[s]，在浊辅音或元音后读[z]",
+          "以-s或-es结尾的名词复数，直接在其后加'，读音与可数名词复数词尾相同",
+          "不以-s结尾的可数名词复数，直接在其后加-'s，读音与可数名词复数词尾相同",
+          "两人或多人共有一个人或事物时，只变化最后一个名词的词尾；如果为各自所有，各个名词的词尾都要变化",
+          "表示时间、距离、国家、地点、自然现象等无生命的名词常用-'s所有格",
+          "表示某人的店铺、医院、学校、住宅及公共建筑时，-'s所有格后常常不出现它所修饰的名词",
+          "-'s所有格常用来表示节日"
+        ],
+        "examples": [
+          {
+            "correct": "Dick's hobby",
+            "translation": "迪克的爱好",
+            "explanation": "单数名词加-'s"
+          },
+          {
+            "correct": "my parents' hope",
+            "translation": "我父母的希望",
+            "explanation": "复数名词以-s结尾加'"
+          },
+          {
+            "correct": "children's time",
+            "translation": "孩子们的时间",
+            "explanation": "不规则复数加-'s"
+          },
+          {
+            "correct": "John and Susan's father",
+            "translation": "约翰和苏珊的父亲（共有）",
+            "explanation": "共同所有"
+          },
+          {
+            "correct": "two days' trip",
+            "translation": "两天的旅行",
+            "explanation": "表示时间"
+          },
+          {
+            "correct": "China's weather",
+            "translation": "中国的天气",
+            "explanation": "表示国家"
+          },
+          {
+            "correct": "at the tailor's (shop)",
+            "translation": "在裁缝店",
+            "explanation": "店铺省略名词"
+          },
+          {
+            "correct": "Children's Day",
+            "translation": "儿童节",
+            "explanation": "节日"
+          }
+        ],
+        "memoryTips": [
+          "单数加-'s，复数-s后加'，不规则复数加-'s",
+          "共有只加最后一个，各自所有都要加",
+          "时间、距离、国家、地点也能用-'s"
+        ],
+        "specialNotes": [
+          "有时为了避免重复，如果一个被-'s所有格修饰的名词在上文已经提到过，或两个-'s所有格所修饰的词相同，往往可以省略第二个所有格后的名词"
+        ],
+        "relatedTopics": [
+          "nouns-possessive-of",
+          "nouns-possessive-double"
+        ]
+      },
+      {
+        "id": "nouns-possessive-of",
+        "title": "of所有格和双重所有格",
+        "category": "Nouns",
+        "gradeLevel": 8,
+        "difficulty": "intermediate",
+        "examTag": "中考高频",
+        "description": "'名词 + of + 名词'便构成了of所有格。双重所有格是'名词 + of + -'s所有格/名词性物主代词'构成双重所有格。",
+        "rules": [
+          "of所有格表示无生命名词的所有关系",
+          "名词化的形容词的所有关系用of所有格",
+          "双重所有格：如果在表示所属物的名词前有冠词、数词、不定代词或指示代词时，常用双重所有格的形式来表示所有关系"
+        ],
+        "examples": [
+          {
+            "correct": "Beijing is the capital of China",
+            "translation": "北京是中国的首都",
+            "explanation": "无生命名词用of"
+          },
+          {
+            "correct": "The life of the poor is the biggest problem",
+            "translation": "穷人的生活是最大的问题",
+            "explanation": "名词化形容词用of"
+          },
+          {
+            "correct": "Two friends of mine had gone to the movies",
+            "translation": "我的两个朋友去看电影了",
+            "explanation": "双重所有格"
+          },
+          {
+            "correct": "David is a friend of my father's",
+            "translation": "戴维是我父亲的一位朋友",
+            "explanation": "双重所有格"
+          }
+        ],
+        "memoryTips": [
+          "无生命的用of：the capital of China",
+          "双重所有格：有限定词时用'of + -'s'或'of + mine/yours'",
+          "of前的名词是photo/picture等时，双重所有格与of所有格表示的意义不同"
+        ],
+        "specialNotes": [
+          "of前的名词是photo, picture等时，双重所有格与of所有格表示的意义不同：a picture of Mr Sun's 孙先生（拥有）的一张照片；a picture of Mr Sun 孙先生（本人）的一张照片"
+        ],
+        "relatedTopics": [
+          "nouns-possessive-s"
+        ]
+      },
+      {
+        "id": "nouns-modifiers",
+        "title": "名词的修饰语",
+        "category": "Nouns",
+        "gradeLevel": 8,
+        "difficulty": "intermediate",
+        "examTag": "中考高频",
+        "description": "名词可以由各种修饰语修饰，包括表示数量的词、单位词以及其他修饰语。",
+        "rules": [
+          "只修饰可数名词：few（没有几个）, a few（几个）, several（几个）, many（很多）, a great/good many（很多）, a number of（若干）, numbers of（大量的）",
+          "只修饰不可数名词：little（很少，几乎没有）, a little（一点）, much（许多）, a good/great deal of（很多）, a bit of（有一点，少量）",
+          "既可修饰可数名词又可修饰不可数名词：some（一些）, lots of（很多）, a lot of（很多）, plenty of（充足的）, all（全部的）, most（大多数的）",
+          "单位词：普通单位词（piece, article, bit）、度量单位词（metre, inch, yard, foot, pound, kilogram, ton, sum）、容积单位词（box, bag, basket, bottle, cup, glass, basin）、形状单位词（bar, block, loaf, cake, drop, grain）、集体单位词（team, crowd, group, fleet）",
+          "其他修饰语：名词作修饰语（stone table）、形容词作修饰语（pretty girl）、副词作修饰语（the weather here）、介词短语作修饰语（a girl in clean clothes）、从句作修饰语（writers who write short stories）"
+        ],
+        "examples": [
+          {
+            "correct": "few students",
+            "translation": "没有几个学生",
+            "explanation": "修饰可数名词"
+          },
+          {
+            "correct": "much water",
+            "translation": "许多水",
+            "explanation": "修饰不可数名词"
+          },
+          {
+            "correct": "some money",
+            "translation": "一些钱",
+            "explanation": "既可修饰可数又可修饰不可数"
+          },
+          {
+            "correct": "a piece of music",
+            "translation": "一段乐曲",
+            "explanation": "普通单位词"
+          },
+          {
+            "correct": "a metre of cloth",
+            "translation": "一米布",
+            "explanation": "度量单位词"
+          },
+          {
+            "correct": "a cup of tea",
+            "translation": "一杯茶",
+            "explanation": "容积单位词"
+          },
+          {
+            "correct": "a bar of chocolate",
+            "translation": "一块巧克力",
+            "explanation": "形状单位词"
+          },
+          {
+            "correct": "a team of players",
+            "translation": "一队选手",
+            "explanation": "集体单位词"
+          }
+        ],
+        "memoryTips": [
+          "few/little表示'几乎没有'（否定），a few/a little表示'有一些'（肯定）",
+          "many/much很多：many修饰可数，much修饰不可数",
+          "some, lots of, plenty of是'万能词'，可数不可数都能修饰",
+          "单位词记忆：一片(piece)、一条(article)、一米(metre)、一杯(cup)、一块(bar)、一队(team)"
+        ],
+        "specialNotes": [
+          "英语中有些名词成双成对出现的，这些名词常用pair来修饰：a pair of glasses（一副眼镜）, a pair of trousers（一条裤子）, a pair of shoes（一双鞋）"
+        ],
+        "relatedTopics": [
+          "nouns-plural-countable",
+          "nouns-classification"
+        ]
+      }
+    ]
+  }
+}

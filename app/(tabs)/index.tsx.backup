@@ -1,0 +1,330 @@
+import { useState, useEffect } from "react";
+import {
+  ScrollView,
+  Text,
+  View,
+  TextInput,
+  ActivityIndicator,
+  Platform,
+} from "react-native";
+import * as Haptics from "expo-haptics";
+import { ScreenContainer } from "@/components/screen-container";
+import { useColors } from "@/hooks/use-colors";
+import { router } from "expo-router";
+import { trpc } from "@/lib/trpc";
+import { AnimatedButton } from "@/components/animated-button";
+import { AnimatedListItem } from "@/components/animated-list-item";
+import {
+  addCheckToHistory,
+  updateProgressData,
+  getCheckHistory,
+  getProgressData,
+  type CheckHistoryItem,
+  type ProgressData,
+} from "@/lib/storage";
+import { getTodayReviewCount } from "@/services/review-service";
+
+export default function HomeScreen() {
+  const colors = useColors();
+  const [sentence, setSentence] = useState("");
+  const [isChecking, setIsChecking] = useState(false);
+  const [recentChecks, setRecentChecks] = useState<CheckHistoryItem[]>([]);
+  const [progress, setProgress] = useState<ProgressData | null>(null);
+  const [todayReviewCount, setTodayReviewCount] = useState(0);
+
+  // Load data on mount
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = async () => {
+    const history = await getCheckHistory();
+    const progressData = await getProgressData();
+    const reviewCount = await getTodayReviewCount();
+    setRecentChecks(history.slice(0, 5));
+    setProgress(progressData);
+    setTodayReviewCount(reviewCount);
+  };
+
+  const checkGrammarMutation = trpc.grammar.check.useMutation({
+    onSuccess: async (result) => {
+      console.log("Grammar check success:", result);
+      setIsChecking(false);
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      }
+      // Save to history and update progress
+      await addCheckToHistory(result);
+      await updateProgressData(result);
+      await loadData();
+      // Navigate to result screen with data
+      router.push({
+        pathname: "/check-result" as any,
+        params: {
+          result: JSON.stringify(result),
+          gradeLevel: "9",
+        },
+      });
+    },
+    onError: (error) => {
+      console.error("Grammar check failed:", error);
+      setIsChecking(false);
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      }
+      
+      // 更友好的错误提示
+      let errorMessage = "语法检查失败";
+      let errorDetail = "";
+      
+      if (error.message.includes("timeout") || error.message.includes("Timeout")) {
+        errorDetail = "网络连接超时，请检查网络后重试";
+      } else if (error.message.includes("network") || error.message.includes("fetch")) {
+        errorDetail = "网络连接失败，请检查网络设置";
+      } else if (error.message.includes("transform")) {
+        errorDetail = "服务器响应异常，请稍后重试";
+      } else {
+        errorDetail = error.message || "未知错误，请稍后重试";
+      }
+      
+      alert(`${errorMessage}\n\n${errorDetail}\n\n💡 提示：如果问题持续，我们会提供基础检查功能`);
+    },
+  });
+
+  const handleCheckGrammar = () => {
+    console.log("handleCheckGrammar called");
+    if (!sentence.trim()) {
+      console.log("Sentence is empty");
+      alert("请输入一个英文句子");
+      return;
+    }
+
+    console.log("Checking sentence:", sentence.trim());
+
+    if (Platform.OS !== "web") {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    }
+
+    setIsChecking(true);
+    console.log("Calling TRPC mutation...");
+    checkGrammarMutation.mutate({
+      sentence: sentence.trim(),
+      gradeLevel: 9, // Default to grade 9, will be customizable later
+    });
+  };
+
+  return (
+    <ScreenContainer className="bg-background">
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="flex-1 p-6 gap-6">
+          {/* Header - Minimal Logo + Slogan */}
+          <View className="flex-row items-center justify-between pt-4 pb-2">
+            <Text className="text-2xl font-light tracking-widest text-foreground">EPOS</Text>
+            <Text className="text-sm font-light tracking-wide text-muted lowercase">logic of language</Text>
+          </View>
+
+          {/* Daily Tip Card */}
+          <View className="bg-transparent rounded-none p-5 border-0.5 border-border">
+            <View className="flex-row items-center gap-2 mb-2">
+              <Text className="text-lg font-semibold text-primary">💡 每日提示</Text>
+            </View>
+            <Text className="text-sm text-foreground leading-relaxed">
+              记住：谈论已完成的动作时使用过去时。例如“I went to school yesterday”而不是“I go to school yesterday”
+            </Text>
+          </View>
+
+          {/* Today's Review Reminder */}
+          {todayReviewCount > 0 && (
+            <AnimatedButton
+              onPress={() => router.push("/wrong-book")}
+              variant="secondary"
+              className="bg-transparent border-0.5 border-border"
+            >
+              <View className="flex-row items-center justify-between py-1">
+                <View className="flex-row items-center gap-3">
+                  <View className="bg-error/20 rounded-full p-2">
+                    <Text className="text-2xl">🔔</Text>
+                  </View>
+                  <View>
+                    <Text className="text-base font-bold text-foreground">
+                      今日待复习
+                    </Text>
+                    <Text className="text-sm text-muted">
+                      {todayReviewCount} 个错题待巩固
+                    </Text>
+                  </View>
+                </View>
+                <View className="bg-error rounded-full w-6 h-6 items-center justify-center">
+                  <Text className="text-xs font-bold text-white">
+                    {todayReviewCount}
+                  </Text>
+                </View>
+              </View>
+            </AnimatedButton>
+          )}
+
+         {/* 拍照识别入口 */}
+        <AnimatedButton
+          onPress={() => router.push("/photo-recognition")}
+          variant="secondary"
+          className="bg-transparent border-0.5 border-border"
+        >
+          <View className="flex-row items-center justify-center gap-3 py-1">
+            <View className="bg-primary/20 rounded-full p-2">
+              <Text className="text-2xl">📷</Text>
+            </View>
+            <Text className="text-lg font-semibold text-foreground">
+              拍照识别
+            </Text>
+          </View>
+        </AnimatedButton>
+
+        {/* 课文带学入口 */}
+        <AnimatedButton
+          onPress={() => router.push("/textbook-reading-list")}
+          variant="secondary"
+          className="bg-transparent border-0.5 border-border"
+        >
+          <View className="flex-row items-center justify-center gap-3 py-1">
+            <View className="bg-primary/20 rounded-full p-2">
+              <Text className="text-2xl">📖</Text>
+            </View>
+            <View>
+              <Text className="text-lg font-semibold text-foreground">
+                课文带学
+              </Text>
+              <Text className="text-xs text-muted">
+                智能点读 · AI考点拆解 · 场景对练
+              </Text>
+            </View>
+          </View>
+        </AnimatedButton>
+
+        {/* 语法中心入口 */}
+        <AnimatedButton
+          onPress={() => router.push("/grammar-center")}
+          variant="secondary"
+          className="bg-transparent border-0.5 border-border"
+        >
+          <View className="flex-row items-center justify-center gap-3 py-1">
+            <View className="bg-green-500/20 rounded-full p-2">
+              <Text className="text-2xl">📚</Text>
+            </View>
+            <View>
+              <Text className="text-lg font-semibold text-foreground">
+                语法中心
+              </Text>
+              <Text className="text-xs text-muted">
+                37个知识点 · 按年级/类别/考点 · 智能学习
+              </Text>
+            </View>
+          </View>
+        </AnimatedButton>
+
+        {/* 输入区域 */}
+        <View className="bg-transparent rounded-none p-4 border-0.5 border-border gap-3">
+          <Text className="text-lg font-semibold text-foreground">
+            输入你的句子：
+          </Text>
+          <TextInput
+              value={sentence}
+              onChangeText={setSentence}
+              placeholder="输入一个英文句子进行检查..."
+              placeholderTextColor={colors.muted}
+              multiline
+              numberOfLines={4}
+              returnKeyType="done"
+              className="bg-background rounded-xl p-4 text-base text-foreground min-h-[120px]"
+              style={{
+                borderWidth: 1,
+                borderColor: colors.border,
+                textAlignVertical: "top",
+              }}
+            />
+
+            {/* Check Button */}
+            <AnimatedButton
+              onPress={handleCheckGrammar}
+              disabled={!sentence.trim() || isChecking}
+              variant="primary"
+            >
+              {isChecking ? (
+                <ActivityIndicator size="small" color="#fff" />
+              ) : (
+                <Text className="text-white font-semibold text-base">检查语法</Text>
+              )}
+            </AnimatedButton>
+          </View>
+
+          {/* Quick Stats */}
+          <View className="flex-row gap-3">
+            <View className="flex-1 bg-surface rounded-xl p-4 border border-border items-center">
+              <Text className="text-2xl font-bold text-primary">{progress?.totalChecks || 0}</Text>
+              <Text className="text-xs text-muted mt-1">已检查</Text>
+            </View>
+            <View className="flex-1 bg-surface rounded-xl p-4 border border-border items-center">
+              <Text className="text-2xl font-bold text-success">{progress?.correctChecks || 0}</Text>
+              <Text className="text-xs text-muted mt-1">正确</Text>
+            </View>
+            <View className="flex-1 bg-surface rounded-xl p-4 border border-border items-center">
+              <Text className="text-2xl font-bold text-warning">{progress?.currentStreak || 0}</Text>
+              <Text className="text-xs text-muted mt-1">连续天数</Text>
+            </View>
+          </View>
+
+          {/* Recent Checks Section */}
+          <View>
+            <Text className="text-lg font-semibold text-foreground mb-3">最近检查</Text>
+            {recentChecks.length === 0 ? (
+              <View className="bg-surface rounded-xl p-5 border border-border items-center">
+                <Text className="text-sm text-muted">还没有检查记录</Text>
+                <Text className="text-xs text-muted mt-1">在上方开始检查你的语法吧！</Text>
+              </View>
+            ) : (
+              <View className="gap-3">
+                {recentChecks.map((item, index) => (
+                  <AnimatedListItem key={item.id} index={index}>
+                    <AnimatedButton
+                      onPress={() => {
+                        router.push({
+                          pathname: "/check-result" as any,
+                          params: {
+                            result: JSON.stringify(item.result),
+                            gradeLevel: "9",
+                          },
+                        });
+                      }}
+                      variant="secondary"
+                      className="bg-surface border border-border p-0"
+                    >
+                      <View className="p-4 w-full">
+                        <View className="flex-row items-center justify-between mb-2">
+                          <Text
+                            className="text-xs font-medium"
+                            style={{
+                              color: item.result.errors.length === 0 ? colors.success : colors.error,
+                            }}
+                          >
+                            {item.result.errors.length === 0
+                              ? "✓ 完美"
+                              : `${item.result.errors.length} 个错误`}
+                          </Text>
+                          <Text className="text-xs text-muted">
+                            {new Date(item.timestamp).toLocaleDateString("zh-CN")}
+                          </Text>
+                        </View>
+                        <Text className="text-sm text-foreground" numberOfLines={2}>
+                          {item.result.original}
+                        </Text>
+                      </View>
+                    </AnimatedButton>
+                  </AnimatedListItem>
+                ))}
+              </View>
+            )}
+          </View>
+        </View>
+      </ScrollView>
+    </ScreenContainer>
+  );
+}

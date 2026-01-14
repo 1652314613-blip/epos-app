@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pure black background -->
+  <rect width="200" height="200" fill="#000000"/>
+  
+  <!-- Pure white minimal "E" letterform -->
+  <path d="M60 50 H140 M60 50 V150 M60 100 H120 M60 150 H140" 
+        stroke="#FFFFFF" 
+        stroke-width="2" 
+        stroke-linecap="square" 
+        fill="none"/>
+  
+  <!-- "EPOS" text in thin sans-serif -->
+  <text x="100" y="180" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-size="16" 
+        font-weight="300" 
+        letter-spacing="4" 
+        fill="#FFFFFF" 
+        text-anchor="middle">EPOS</text>
+</svg>
