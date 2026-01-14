@@ -1,0 +1,16 @@
+node_modules
+.expo
+.expo-shared
+*.log
+.git
+.gitignore
+README.md
+.DS_Store
+*.md
+!EPOS_*.md
+.vscode
+.idea
+coverage
+.cache
+ios
+android
