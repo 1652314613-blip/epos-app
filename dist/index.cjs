@@ -34149,6 +34149,15 @@ async function startServer() {
   }
   app.use(import_express.default.static(webBuildPath));
   registerOAuthRoutes(app);
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/api/trpc")) {
+      console.log(`[TRPC Request] ${req.method} ${req.path}`);
+      if (req.body && Object.keys(req.body).length > 0) {
+        console.log(`[TRPC Request Body]:`, JSON.stringify(req.body).substring(0, 300));
+      }
+    }
+    next();
+  });
   app.get("/api/health", (_req, res) => {
     res.json({ ok: true, timestamp: Date.now() });
   });
