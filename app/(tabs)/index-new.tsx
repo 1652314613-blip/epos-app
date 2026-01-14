@@ -47,6 +47,12 @@ export default function HomeScreen() {
     setTodayReviewCount(reviewCount);
   };
 
+  // 判断输入是否为学习问题（包含中文）
+  const isLearningQuestion = (text: string): boolean => {
+    const chineseRegex = /[\u4e00-\u9fff]/g;
+    return chineseRegex.test(text);
+  };
+
   const checkGrammarMutation = trpc.grammar.check.useMutation({
     onSuccess: async (result) => {
       console.log("Grammar check success:", result);
@@ -91,14 +97,52 @@ export default function HomeScreen() {
     },
   });
 
+  const askQuestionMutation = trpc.qa.ask.useMutation({
+    onSuccess: (result) => {
+      console.log("QA success:", result);
+      setIsCheckingGrammar(false);
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      }
+      // Navigate to QA result screen
+      router.push({
+        pathname: "/qa-result" as any,
+        params: {
+          result: JSON.stringify(result),
+        },
+      });
+    },
+    onError: (error) => {
+      console.error("QA failed:", error);
+      setIsCheckingGrammar(false);
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      }
+      alert(`\u56de\u7b54\u95ee\u9898\u5931\u8d25: ${error.message}\n\n\u8bf7\u7a0d\u540e\u91cd\u8bd5`);
+    },
+  });
+
   const handleSendMessage = (text: string) => {
     if (!text.trim()) return;
 
     setIsCheckingGrammar(true);
-    checkGrammarMutation.mutate({
-      sentence: text.trim(),
-      gradeLevel: 9,
-    });
+
+    // \u5224\u65ad\u662f\u5b66\u4e60\u95ee\u9898\u8fd8\u662f\u82f1\u6587\u53e5\u5b50
+    if (isLearningQuestion(text)) {
+      // \u5b66\u4e60\u95ee\u9898 - \u8c03\u7528QA API
+      console.log("[Home] Detected learning question:", text);
+      askQuestionMutation.mutate({
+        question: text.trim(),
+        gradeLevel: 9,
+      });
+    } else {
+      // \u82f1\u6587\u53e5\u5b50 - \u8c03\u7528\u8bed\u6cd5\u68c0\u67e5API
+      console.log("[Home] Detected English sentence:", text);
+      checkGrammarMutation.mutate({
+        sentence: text.trim(),
+        gradeLevel: 9,
+      });
+    }
   };
 
   const handlePhotoPress = () => {
