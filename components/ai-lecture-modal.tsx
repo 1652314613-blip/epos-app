@@ -85,28 +85,29 @@ export function AILectureModal({
       });
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch AI lecture: ${response.status} ${response.statusText}`);
+        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
-      console.log("AI Lecture API Response:", data);
+      console.log("AI Lecture API Response:", JSON.stringify(data, null, 2));
+
+      // Handle tRPC response format
+      // The response structure is: { result: { data: { json: {...} } } }
+      const grammarResult = data.result?.data?.json;
+      
+      if (!grammarResult) {
+        console.error("Invalid response structure:", data);
+        throw new Error("Invalid API response structure");
+      }
 
       // Format the response as a detailed lecture
       let formattedContent = `## ${tag}精讲\n\n`;
       formattedContent += `**问题**: ${question}\n\n`;
 
-      // Handle tRPC response format
-      // The response structure is: { result: { data: { json: {...} } } }
-      let result = data.result?.data?.json || data.result || data;
-      if (!result || typeof result !== 'object') {
-        throw new Error('Invalid response format from API');
-      }
-      
-      // Extract content from grammar check result
-      if (result && result.errors && result.errors.length > 0) {
-        // Format errors as detailed explanation
+      // Add error analysis if there are errors
+      if (grammarResult.errors && grammarResult.errors.length > 0) {
         formattedContent += `**错误分析**:\n`;
-        result.errors.forEach((error: any, index: number) => {
+        grammarResult.errors.forEach((error: any, index: number) => {
           formattedContent += `\n${index + 1}. **${error.category}** (${error.severity})\n`;
           formattedContent += `   - 错误: ${error.incorrect}\n`;
           formattedContent += `   - 正确: ${error.correct}\n`;
@@ -115,24 +116,31 @@ export function AILectureModal({
             formattedContent += `   - 参考: ${error.pepReference}\n`;
           }
         });
+      } else {
+        // No errors - this is a correct sentence
+        formattedContent += `**✅ 很棒！这个句子在语法上是正确的。**\n\n`;
       }
 
-      if (result && result.suggestions && result.suggestions.length > 0) {
+      // Add suggestions
+      if (grammarResult.suggestions && grammarResult.suggestions.length > 0) {
         formattedContent += `\n**学习建议**:\n`;
-        result.suggestions.forEach((suggestion: string) => {
+        grammarResult.suggestions.forEach((suggestion: string) => {
           formattedContent += `- ${suggestion}\n`;
         });
       }
-      
-      if (result && result.corrected && result.corrected !== question) {
-        formattedContent += `\n**改正后的句子**:\n${result.corrected}\n\n`;
+
+      // Add corrected sentence if it differs
+      if (grammarResult.corrected && grammarResult.corrected !== question) {
+        formattedContent += `\n**改正后的句子**:\n${grammarResult.corrected}\n`;
       }
-      
-      if (result && result.overallScore !== undefined) {
-        formattedContent += `\n**得分**: ${result.overallScore}/100\n`;
+
+      // Add score
+      if (grammarResult.overallScore !== undefined) {
+        formattedContent += `\n**得分**: ${grammarResult.overallScore}/100\n`;
       }
 
       // Add tips based on tag
+      formattedContent += `\n`;
       switch (tag) {
         case "考点":
           formattedContent += `**💡 考点提示**: 这是中考/高考的高频考点，建议重点掌握。\n`;
@@ -148,7 +156,7 @@ export function AILectureModal({
       setLectureContent(formattedContent);
     } catch (err) {
       console.error("Error fetching AI lecture:", err);
-      setError("获取AI精讲失败，请稍后重试");
+      setError(`获取AI精讲失败: ${err instanceof Error ? err.message : "未知错误"}`);
 
       // Provide fallback content
       let fallbackContent = `## ${tag}精讲\n\n`;
@@ -396,22 +404,54 @@ export function AILectureModal({
                       {line.replace(/\*\*/g, "")}
                     </Text>
                   );
-                } else if (line.startsWith("1.") || line.startsWith("2.") || line.startsWith("3.")) {
+                } else if (line.startsWith("   - ")) {
                   return (
                     <Text
                       key={index}
                       style={{
-                        fontSize: 14,
+                        fontSize: 13,
+                        color: colors.muted,
+                        marginLeft: 16,
+                        marginBottom: 4,
+                        lineHeight: 20,
+                      }}
+                    >
+                      {line.replace("   - ", "")}
+                    </Text>
+                  );
+                } else if (line.startsWith("- ")) {
+                  return (
+                    <Text
+                      key={index}
+                      style={{
+                        fontSize: 13,
                         color: colors.foreground,
-                        marginBottom: 8,
                         marginLeft: 12,
+                        marginBottom: 6,
+                        lineHeight: 20,
+                      }}
+                    >
+                      {line.replace("- ", "")}
+                    </Text>
+                  );
+                } else if (line.startsWith("1. ") || line.startsWith("2. ") || line.startsWith("3. ")) {
+                  return (
+                    <Text
+                      key={index}
+                      style={{
+                        fontSize: 13,
+                        color: colors.foreground,
+                        marginLeft: 12,
+                        marginBottom: 6,
                         lineHeight: 20,
                       }}
                     >
                       {line}
                     </Text>
                   );
-                } else if (line.trim()) {
+                } else if (line.trim() === "") {
+                  return <View key={index} style={{ height: 8 }} />;
+                } else {
                   return (
                     <Text
                       key={index}
@@ -419,47 +459,45 @@ export function AILectureModal({
                         fontSize: 14,
                         color: colors.foreground,
                         marginBottom: 8,
-                        lineHeight: 20,
+                        lineHeight: 22,
                       }}
                     >
                       {line}
                     </Text>
                   );
                 }
-                return null;
               })}
             </View>
           )}
-
-          <View style={{ height: 20 }} />
         </ScrollView>
 
-        {/* Footer Action */}
+        {/* Footer Buttons */}
         <View
           style={{
+            flexDirection: "row",
+            gap: 12,
             paddingHorizontal: 20,
             paddingVertical: 16,
             borderTopWidth: 0.5,
             borderTopColor: colors.border,
-            flexDirection: "row",
-            gap: 12,
           }}
         >
           <TouchableOpacity
             onPress={handleClose}
             style={{
               flex: 1,
-              backgroundColor: colors.primary,
-              borderRadius: 12,
               paddingVertical: 12,
+              paddingHorizontal: 16,
+              backgroundColor: colors.foreground,
+              borderRadius: 12,
               alignItems: "center",
             }}
           >
             <Text
               style={{
-                color: "white",
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: "600",
+                color: colors.background,
               }}
             >
               我已了解
@@ -467,25 +505,22 @@ export function AILectureModal({
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => {
-              // Could navigate to related grammar point
-              handleClose();
-            }}
+            onPress={handleClose}
             style={{
               flex: 1,
-              backgroundColor: colors.background,
-              borderRadius: 12,
               paddingVertical: 12,
+              paddingHorizontal: 16,
+              backgroundColor: colors.muted,
+              borderRadius: 12,
               alignItems: "center",
-              borderWidth: 0.5,
-              borderColor: colors.border,
+              opacity: 0.5,
             }}
           >
             <Text
               style={{
-                color: colors.foreground,
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: "600",
+                color: colors.foreground,
               }}
             >
               查看更多
