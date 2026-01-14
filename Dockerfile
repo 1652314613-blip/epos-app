@@ -1,12 +1,7 @@
 FROM node:22-slim
 WORKDIR /app
-# Copy package files
-COPY package.json package-lock.json ./
-# Install dependencies
-RUN npm ci
-# Copy source code
+COPY package*.json ./
+RUN npm ci --production=false
 COPY . .
-# Expose port
-EXPOSE 3000 8080
-# Start server
+EXPOSE 3000
 CMD ["npm", "start"]
