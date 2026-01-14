@@ -69,48 +69,63 @@ export function AILectureModal({
     setLectureContent("");
 
     try {
-      // Call existing grammar check API to get AI explanation
-      // We'll use a prompt that focuses on detailed explanation
-      const response = await fetch("/api/trpc/grammar.check?input=" + encodeURIComponent(JSON.stringify({
-        json: {
-          sentence: question,
-          gradeLevel: 9,
-        }
-      })), {
-        method: "GET",
+      // Call grammar check API using tRPC protocol
+      // tRPC mutations use POST with JSON body
+      const response = await fetch("/api/trpc/grammar.check", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          json: {
+            sentence: question,
+            gradeLevel: 9,
+          },
+        }),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch AI lecture: " + response.status);
+        throw new Error(`Failed to fetch AI lecture: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
+      console.log("AI Lecture API Response:", data);
 
       // Format the response as a detailed lecture
       let formattedContent = `## ${tag}精讲\n\n`;
       formattedContent += `**问题**: ${question}\n\n`;
 
-      // Handle tRPC response format
+      // Handle tRPC response format - the result is in data.result
       const result = data.result || data;
       
-      if (result && result.explanation) {
-        formattedContent += `**详细解析**:\n${result.explanation}\n\n`;
+      // Extract content from grammar check result
+      if (result && result.errors && result.errors.length > 0) {
+        // Format errors as detailed explanation
+        formattedContent += `**错误分析**:\n`;
+        result.errors.forEach((error: any, index: number) => {
+          formattedContent += `\n${index + 1}. **${error.category}** (${error.severity})\n`;
+          formattedContent += `   - 错误: ${error.incorrect}\n`;
+          formattedContent += `   - 正确: ${error.correct}\n`;
+          formattedContent += `   - 解释: ${error.explanation}\n`;
+          if (error.pepReference) {
+            formattedContent += `   - 参考: ${error.pepReference}\n`;
+          }
+        });
       }
 
-      if (result && result.suggestions) {
-        formattedContent += `**改进建议**:\n${result.suggestions}\n\n`;
-      }
-
-      if (result && result.examples) {
-        formattedContent += `**相关例句**:\n${result.examples}\n\n`;
+      if (result && result.suggestions && result.suggestions.length > 0) {
+        formattedContent += `\n**学习建议**:\n`;
+        result.suggestions.forEach((suggestion: string) => {
+          formattedContent += `- ${suggestion}\n`;
+        });
       }
       
-      // If no detailed response, use the analysis
-      if (!result.explanation && result.analysis) {
-        formattedContent += `**分析**:\n${result.analysis}\n\n`;
+      if (result && result.corrected && result.corrected !== question) {
+        formattedContent += `\n**改正后的句子**:\n${result.corrected}\n\n`;
+      }
+      
+      if (result && result.overallScore !== undefined) {
+        formattedContent += `\n**得分**: ${result.overallScore}/100\n`;
       }
 
       // Add tips based on tag
