@@ -51,7 +51,7 @@ export default function TextbookReadingScreen() {
   if (!reading) {
     return (
       <View style={styles.container as any}>
-        <Text style={styles.errorText as any}>课文加载中...</Text>
+        <Text style={styles.errorText as any}>文章加载中...</Text>
       </View>
     );
   }

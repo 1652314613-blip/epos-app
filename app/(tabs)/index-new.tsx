@@ -409,7 +409,7 @@ export default function HomeScreen() {
                           color: colors.foreground,
                         }}
                       >
-                        课文带学
+                        文章学习
                       </Text>
                       <Text
                         style={{
@@ -418,7 +418,7 @@ export default function HomeScreen() {
                           marginTop: 2,
                         }}
                       >
-                        智能点读 · AI考点拆解 · 场景对练
+                        精选文章 · 提高阅读 · 扩展词汇
                       </Text>
                     </View>
                   </View>

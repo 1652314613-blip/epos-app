@@ -56,13 +56,13 @@ export default function TextbookReadingListScreen() {
         >
           <Ionicons name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>课文列表</Text>
+        <Text style={styles.headerTitle}>文章列表</Text>
         <View style={styles.placeholder} />
       </View>
       
       {/* Grade Selector */}
       <View style={styles.selectorSection}>
-        <Text style={styles.selectorLabel}>年级:</Text>
+        <Text style={styles.selectorLabel}>难度:</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.selectorScroll}>
           {availableGrades.map(grade => (
             <TouchableOpacity
@@ -73,11 +73,11 @@ export default function TextbookReadingListScreen() {
               ]}
               onPress={() => {
                 setSelectedGrade(grade);
-                // Auto-select first available book for this grade
-                const books = Array.from(new Set(
+                // Auto-select first available article for this difficulty
+                const articles = Array.from(new Set(
                   TEXTBOOK_READINGS.filter(r => r.grade === grade).map(r => r.book)
                 )).sort();
-                if (books.length > 0) {
+                if (articles.length > 0) {
                   setSelectedBook(books[0]);
                 }
               }}

@@ -30,41 +30,41 @@ export default function TextbookScreen() {
         <View className="flex-1 gap-6">
           {/* Header */}
           <View className="gap-2">
-            <Text className="text-3xl font-bold text-foreground">教材学习</Text>
-            <Text className="text-sm text-muted">人教版初高中英语教材同步学习（词汇+语法）</Text>
+            <Text className="text-3xl font-bold text-foreground">文章学习</Text>
+            <Text className="text-sm text-muted">精选英语文章，提高阅读理解能力</Text>
           </View>
 
           {/* Grade Selector */}
           <View className="gap-3">
-            <Text className="text-base font-semibold text-foreground">选择年级</Text>
+            <Text className="text-base font-semibold text-foreground">选择难度</Text>
             <View className="flex-row flex-wrap gap-2">
-              {grades.map((grade) => (
+              {["初级", "中级", "高级"].map((level) => (
                 <AnimatedButton
-                  key={grade}
-                  onPress={() => setSelectedGrade(grade)}
-                  variant={selectedGrade === grade ? "primary" : "secondary"}
+                  key={level}
+                  onPress={() => setSelectedGrade(grades[Object.keys(["初级", "中级", "高级"]).indexOf(level)])}
+                  variant={selectedGrade === grades[Object.keys(["初级", "中级", "高级"]).indexOf(level)] ? "primary" : "secondary"}
                   className="px-4 py-2"
                 >
                   <Text
                     className={`text-sm font-semibold ${
-                      selectedGrade === grade ? "text-background" : "text-primary"
+                      selectedGrade === grades[Object.keys(["初级", "中级", "高级"]).indexOf(level)] ? "text-background" : "text-primary"
                     }`}
                   >
-                    {grade <= 9 ? `初${grade - 6}` : `高${grade - 9}`}
+                    {level}
                   </Text>
                 </AnimatedButton>
               ))}
             </View>
           </View>
 
-          {/* Books List */}
+          {/* Articles List */}
           <View className="gap-3">
-            <Text className="text-base font-semibold text-foreground">教材列表</Text>
+            <Text className="text-base font-semibold text-foreground">文章列表</Text>
             {books.length === 0 ? (
               <View className="bg-surface rounded-2xl p-6 items-center gap-2">
-                <Text className="text-4xl">📚</Text>
-                <Text className="text-base font-semibold text-foreground">暂无教材</Text>
-                <Text className="text-sm text-muted">该年级暂无可用教材</Text>
+                <Text className="text-4xl">📄</Text>
+                <Text className="text-base font-semibold text-foreground">暂无文章</Text>
+                <Text className="text-sm text-muted">该难度暂无可用文章</Text>
               </View>
             ) : (
               books.map((book, index) => (

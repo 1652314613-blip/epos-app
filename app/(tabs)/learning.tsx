@@ -13,9 +13,9 @@ export default function LearningCenterScreen() {
   const learningModules = [
     {
       id: "textbook",
-      title: "📚 教材学习",
-      description: "人教版初高中英语教材同步学习",
-      subtitle: "词汇+语法 | 与学校进度同步",
+      title: "📄 文章学习",
+      description: "精选英语文章，提高阅读理解能力",
+      subtitle: "多样化阅读 | 扩展词汇库",
       route: "/textbook" as any,
       color: colors.primary,
     },
