@@ -67,11 +67,22 @@ export const qaRouter = router({
         console.log("[QA] Starting QA request...");
         console.log("[QA] Question:", question);
 
-        const response = await invokeLLM(systemPrompt, userPrompt);
-        console.log("[QA] LLM response:", response);
+        const result = await invokeLLM({
+          messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userPrompt }
+          ]
+        });
+        console.log("[QA] LLM response:", result);
+
+        // Extract the content from the response
+        const content = result.choices[0]?.message?.content;
+        if (!content) {
+          throw new Error("No content in LLM response");
+        }
 
         // Parse the response
-        const qaResult = JSON.parse(response) as QAResult;
+        const qaResult = typeof content === "string" ? JSON.parse(content) : JSON.parse(JSON.stringify(content)) as QAResult;
         console.log("[QA] Parsed QA result:", qaResult);
 
         return qaResult;
