@@ -101,13 +101,16 @@ export function AILectureModal({
 
   const formatAndSetContent = (result: any) => {
     try {
-      // Extract the grammar result
-      // The result structure depends on what the API returns
-      const grammarResult = result.json || result;
+      // The tRPC client automatically unwraps the response
+      // So we receive the GrammarCheckResult directly
+      const grammarResult = result;
 
-      if (!grammarResult) {
+      if (!grammarResult || typeof grammarResult !== 'object') {
+        console.error("Invalid result:", result);
         throw new Error("Invalid response structure");
       }
+
+      console.log("Grammar result:", grammarResult);
 
       // Format the response as a detailed lecture
       let formattedContent = `## ${tag}精讲\n\n`;
