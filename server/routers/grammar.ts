@@ -170,6 +170,15 @@ export const grammarRouter = router({
         };
       }
 
+      // 步骤1：从用户问题中提取英文短语
+      console.log("[Grammar Check] Original input:", sentence);
+      const englishPhraseMatch = sentence.match(/'([^']+)'|"([^"]+)"|\b([a-zA-Z\s]+)\b(?=\s*真的|\s*会|\s*是|\s*怎么|\s*什么)/i);
+      const englishPhrase = englishPhraseMatch ? (englishPhraseMatch[1] || englishPhraseMatch[2] || englishPhraseMatch[3] || sentence) : sentence;
+      
+      // 清理提取的短语
+      const cleanedPhrase = englishPhrase.trim();
+      console.log("[Grammar Check] Extracted English phrase:", cleanedPhrase);
+
       // Get relevant grammar topics for the grade level
       const relevantTopics = getTopicsByGrade(gradeLevel as 7 | 8 | 9 | 10 | 11 | 12);
       const topicSummary = relevantTopics
@@ -220,7 +229,12 @@ ${gradeLevel}年级的重点语法：${topicSummary}
 如果句子没有错误，errors 返回空数组，overallScore 为 100。
 记住：解释要像朋友一样亲切，多用"你"、"咱们"这样的词，让学生感到温暖和鼓励！`;
 
-      const userPrompt = `Analyze this sentence: "${sentence}"`;
+      // 步骤2：使用提取的短语进行语法检查，同时保留原始问题用于生成回答
+      const userPrompt = `用户问题："${sentence}"
+
+请分析这个英文短语的语法："${cleanedPhrase}"
+
+然后根据你的分析结果，用中文回答用户的问题。如果短语有错误，解释为什么会扣分或有问题；如果没有错误，解释为什么不会扣分。`;
 
       try {
         console.log("[Grammar Check] Starting with retry mechanism...");
