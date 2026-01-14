@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 3000 8080
 
 # Start server
-CMD ["node", "dist/index.cjs"]
+CMD ["npm", "start"]
