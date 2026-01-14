@@ -1,11 +1,11 @@
 /**
- * Login Screen - Minimalist Black & White Style
+ * Login Screen - Minimalist Black & White Style with Real Authentication
  * 
  * 设计特点:
  * - 黑白极简风格，与首页保持一致
  * - 简洁的排版和布局
  * - 流畅的动画效果
- * - 支持多种登录方式
+ * - 真实的邮箱登录和注册功能
  */
 
 import { useState, useRef, useEffect } from "react";
@@ -18,17 +18,24 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Alert,
 } from "react-native";
 import { router } from "expo-router";
 import { useColors } from "@/hooks/use-colors";
 import { ScreenContainer } from "@/components/screen-container";
+import { trpc } from "@/lib/trpc";
 import * as Haptics from "expo-haptics";
+
+type AuthMode = "login" | "register";
 
 export default function LoginScreen() {
   const colors = useColors();
+  const [mode, setMode] = useState<AuthMode>("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // 动画值
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -49,15 +56,99 @@ export default function LoginScreen() {
     ]).start();
   }, []);
 
+  // 登录mutation
+  const loginMutation = trpc.auth.login.useMutation({
+    onSuccess: (result) => {
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      }
+      setIsLoading(false);
+      // 登录成功，跳转到首页
+      router.replace("/(tabs)");
+    },
+    onError: (error) => {
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      }
+      setIsLoading(false);
+      setErrors({ general: error.message });
+    },
+  });
+
+  // 注册mutation
+  const registerMutation = trpc.auth.register.useMutation({
+    onSuccess: (result) => {
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      }
+      setIsLoading(false);
+      Alert.alert("注册成功", "请使用邮箱和密码登录", [
+        {
+          text: "确定",
+          onPress: () => {
+            setMode("login");
+            setPassword("");
+            setName("");
+          },
+        },
+      ]);
+    },
+    onError: (error) => {
+      if (Platform.OS !== "web") {
+        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      }
+      setIsLoading(false);
+      setErrors({ general: error.message });
+    },
+  });
+
   const handleLogin = async () => {
+    setErrors({});
+
+    // 验证输入
+    if (!email.trim()) {
+      setErrors({ email: "邮箱不能为空" });
+      return;
+    }
+    if (!password.trim()) {
+      setErrors({ password: "密码不能为空" });
+      return;
+    }
+
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     setIsLoading(true);
 
-    // 模拟登录
-    setTimeout(() => {
-      setIsLoading(false);
-      router.replace("/(tabs)");
-    }, 1500);
+    loginMutation.mutate({
+      email: email.trim(),
+      password,
+    });
+  };
+
+  const handleRegister = async () => {
+    setErrors({});
+
+    // 验证输入
+    if (!email.trim()) {
+      setErrors({ email: "邮箱不能为空" });
+      return;
+    }
+    if (!password.trim()) {
+      setErrors({ password: "密码不能为空" });
+      return;
+    }
+    if (password.length < 6) {
+      setErrors({ password: "密码长度至少6个字符" });
+      return;
+    }
+
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    setIsLoading(true);
+
+    registerMutation.mutate({
+      email: email.trim(),
+      password,
+      name: name.trim() || undefined,
+    });
   };
 
   const handleGuestLogin = () => {
@@ -68,6 +159,13 @@ export default function LoginScreen() {
   const handleBack = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     router.back();
+  };
+
+  const handleToggleMode = () => {
+    setErrors({});
+    setPassword("");
+    setName("");
+    setMode(mode === "login" ? "register" : "login");
   };
 
   return (
@@ -123,7 +221,7 @@ export default function LoginScreen() {
               >
                 EPOS
               </Text>
-              
+
               {/* 欢迎文本 */}
               <Text
                 style={{
@@ -134,7 +232,7 @@ export default function LoginScreen() {
                   lineHeight: 36,
                 }}
               >
-                欢迎回来
+                {mode === "login" ? "欢迎回来" : "开始学习"}
               </Text>
               <Text
                 style={{
@@ -143,12 +241,67 @@ export default function LoginScreen() {
                   lineHeight: 22,
                 }}
               >
-                登录以继续学习英语语法
+                {mode === "login"
+                  ? "登录以继续学习英语语法"
+                  : "注册账户开始你的英语学习之旅"}
               </Text>
             </View>
 
+            {/* 错误提示 */}
+            {errors.general && (
+              <View
+                style={{
+                  backgroundColor: "#ff4444" + "20",
+                  borderRadius: 10,
+                  padding: 12,
+                  marginBottom: 16,
+                  borderLeftWidth: 3,
+                  borderLeftColor: "#ff4444",
+                }}
+              >
+                <Text style={{ color: "#ff4444", fontSize: 13, fontWeight: "500" }}>
+                  {errors.general}
+                </Text>
+              </View>
+            )}
+
             {/* 登录表单 */}
             <View style={{ marginBottom: 32, gap: 16 }}>
+              {/* 姓名输入（仅注册模式） */}
+              {mode === "register" && (
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      fontWeight: "500",
+                      color: colors.foreground,
+                      marginBottom: 8,
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    姓名（可选）
+                  </Text>
+                  <TextInput
+                    value={name}
+                    onChangeText={setName}
+                    placeholder="你的名字"
+                    placeholderTextColor={colors.muted + "80"}
+                    editable={!isLoading}
+                    style={{
+                      backgroundColor: colors.muted + "10",
+                      borderWidth: 1,
+                      borderColor: colors.muted + "30",
+                      borderRadius: 10,
+                      paddingHorizontal: 16,
+                      paddingVertical: 14,
+                      fontSize: 15,
+                      color: colors.foreground,
+                      fontFamily: Platform.OS === "ios" ? "System" : "sans-serif",
+                    }}
+                  />
+                </View>
+              )}
+
               {/* 邮箱输入 */}
               <View>
                 <Text
@@ -173,7 +326,7 @@ export default function LoginScreen() {
                   style={{
                     backgroundColor: colors.muted + "10",
                     borderWidth: 1,
-                    borderColor: colors.muted + "30",
+                    borderColor: errors.email ? "#ff4444" : colors.muted + "30",
                     borderRadius: 10,
                     paddingHorizontal: 16,
                     paddingVertical: 14,
@@ -182,6 +335,11 @@ export default function LoginScreen() {
                     fontFamily: Platform.OS === "ios" ? "System" : "sans-serif",
                   }}
                 />
+                {errors.email && (
+                  <Text style={{ color: "#ff4444", fontSize: 12, marginTop: 4 }}>
+                    {errors.email}
+                  </Text>
+                )}
               </View>
 
               {/* 密码输入 */}
@@ -207,7 +365,7 @@ export default function LoginScreen() {
                   style={{
                     backgroundColor: colors.muted + "10",
                     borderWidth: 1,
-                    borderColor: colors.muted + "30",
+                    borderColor: errors.password ? "#ff4444" : colors.muted + "30",
                     borderRadius: 10,
                     paddingHorizontal: 16,
                     paddingVertical: 14,
@@ -216,30 +374,37 @@ export default function LoginScreen() {
                     fontFamily: Platform.OS === "ios" ? "System" : "sans-serif",
                   }}
                 />
+                {errors.password && (
+                  <Text style={{ color: "#ff4444", fontSize: 12, marginTop: 4 }}>
+                    {errors.password}
+                  </Text>
+                )}
               </View>
 
-              {/* 忘记密码 */}
-              <Pressable
-                style={({ pressed }) => ({
-                  alignSelf: "flex-end",
-                  opacity: pressed ? 0.6 : 1,
-                })}
-              >
-                <Text
-                  style={{
-                    fontSize: 13,
-                    color: colors.muted,
-                    fontWeight: "500",
-                  }}
+              {/* 忘记密码（仅登录模式） */}
+              {mode === "login" && (
+                <Pressable
+                  style={({ pressed }) => ({
+                    alignSelf: "flex-end",
+                    opacity: pressed ? 0.6 : 1,
+                  })}
                 >
-                  忘记密码?
-                </Text>
-              </Pressable>
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: colors.muted,
+                      fontWeight: "500",
+                    }}
+                  >
+                    忘记密码?
+                  </Text>
+                </Pressable>
+              )}
             </View>
 
-            {/* 登录按钮 */}
+            {/* 登录/注册按钮 */}
             <Pressable
-              onPress={handleLogin}
+              onPress={mode === "login" ? handleLogin : handleRegister}
               disabled={isLoading}
               style={({ pressed }) => ({
                 backgroundColor: colors.foreground,
@@ -258,7 +423,13 @@ export default function LoginScreen() {
                   letterSpacing: 0.5,
                 }}
               >
-                {isLoading ? "登录中..." : "登录"}
+                {isLoading
+                  ? mode === "login"
+                    ? "登录中..."
+                    : "注册中..."
+                  : mode === "login"
+                  ? "登录"
+                  : "注册"}
               </Text>
             </Pressable>
 
@@ -331,7 +502,7 @@ export default function LoginScreen() {
               </Text>
             </Pressable>
 
-            {/* 注册提示 */}
+            {/* 登录/注册切换 */}
             <View
               style={{
                 flexDirection: "row",
@@ -346,9 +517,12 @@ export default function LoginScreen() {
                   color: colors.muted,
                 }}
               >
-                还没有账号?
+                {mode === "login" ? "还没有账号?" : "已有账号?"}
               </Text>
-              <Pressable style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}>
+              <Pressable
+                onPress={handleToggleMode}
+                style={({ pressed }) => ({ opacity: pressed ? 0.6 : 1 })}
+              >
                 <Text
                   style={{
                     fontSize: 14,
@@ -356,7 +530,7 @@ export default function LoginScreen() {
                     color: colors.foreground,
                   }}
                 >
-                  立即注册
+                  {mode === "login" ? "立即注册" : "立即登录"}
                 </Text>
               </Pressable>
             </View>
