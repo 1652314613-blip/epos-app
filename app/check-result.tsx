@@ -15,6 +15,7 @@ import { HighlightedText } from "@/components/highlighted-text";
 import { getErrorTypeInfo, getExamRelevance } from "@/lib/error-type-colors";
 import { Ionicons } from "@expo/vector-icons";
 import type { PolishSuggestion } from "@/services/native-polish-service";
+import { EposLogo } from "@/components/epos-logo";
 
 interface GrammarCheckResult {
   original: string;
@@ -220,6 +221,9 @@ export default function CheckResultScreen() {
     <ScreenContainer className="p-6">
       <ScrollView showsVerticalScrollIndicator={false}>
         <View className="gap-6 pb-8">
+          {/* Logo */}
+          <EposLogo />
+
           {/* Header */}
           <View className="items-center gap-2">
             <Text className="text-3xl font-bold text-foreground">检查结果</Text>

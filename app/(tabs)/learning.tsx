@@ -5,6 +5,7 @@ import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
 import { AnimatedButton } from "@/components/animated-button";
 import { AnimatedListItem } from "@/components/animated-list-item";
+import { EposLogo } from "@/components/epos-logo";
 
 export default function LearningCenterScreen() {
   const colors = useColors();
@@ -49,6 +50,9 @@ export default function LearningCenterScreen() {
     <ScreenContainer className="p-6">
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View className="flex-1 gap-6">
+          {/* Logo */}
+          <EposLogo />
+
           {/* Header */}
           <View className="gap-2">
             <Text className="text-3xl font-bold text-foreground">学习中心</Text>

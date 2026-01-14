@@ -15,6 +15,7 @@ import * as Haptics from "expo-haptics";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
+import { EposLogo } from "@/components/epos-logo";
 
 interface QAResult {
   question: string;
@@ -62,6 +63,11 @@ export default function QAResultScreen() {
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
       >
+        {/* Logo */}
+        <View style={{ paddingHorizontal: 16, paddingVertical: 16 }}>
+          <EposLogo />
+        </View>
+
         {/* Header */}
         <View
           style={{

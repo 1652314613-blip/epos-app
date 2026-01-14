@@ -4,6 +4,7 @@ import * as Haptics from "expo-haptics";
 import { ScreenContainer } from "@/components/screen-container";
 import { useColors } from "@/hooks/use-colors";
 import { GRAMMAR_TOPICS, type GradeLevel } from "@/lib/grammar-data";
+import { EposLogo } from "@/components/epos-logo";
 
 export default function LibraryScreen() {
   const colors = useColors();
@@ -50,6 +51,9 @@ export default function LibraryScreen() {
     <ScreenContainer className="bg-background">
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View className="p-6 gap-5">
+          {/* Logo */}
+          <EposLogo />
+
           {/* Header */}
           <View className="pt-4">
             <Text className="text-3xl font-bold text-foreground">语法库</Text>

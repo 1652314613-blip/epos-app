@@ -12,6 +12,7 @@ import {
   type CollectionItem,
 } from "@/lib/storage";
 import { COMMON_UPGRADES } from "@/services/enhancement-service";
+import { EposLogo } from "@/components/epos-logo";
 
 export default function CollectionBookScreen() {
   const colors = useColors();
@@ -113,6 +114,9 @@ export default function CollectionBookScreen() {
     <ScreenContainer className="bg-background">
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
         <View className="p-6 gap-5">
+          {/* Logo */}
+          <EposLogo />
+
           {/* Header */}
           <View className="pt-4">
             <View className="flex-row items-center justify-between">

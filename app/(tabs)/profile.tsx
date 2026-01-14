@@ -13,6 +13,7 @@ import { getVocabularyStats } from "@/lib/vocabulary-storage";
 import { calculateAbilityScores, type AbilityScores } from "@/services/ability-radar-service";
 import { router } from "expo-router";
 import { useAuth } from "@/lib/auth-context";
+import { EposLogo } from "@/components/epos-logo";
 
 export default function ProfileScreen() {
   const colors = useColors();
@@ -123,6 +124,9 @@ export default function ProfileScreen() {
     <ScreenContainer className="p-6">
       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
         <View className="gap-6">
+          {/* Logo */}
+          <EposLogo />
+
           {/* Header */}
           <View className="gap-2">
             <Text className="text-3xl font-bold text-foreground">我的</Text>
