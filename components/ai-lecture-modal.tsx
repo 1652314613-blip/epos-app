@@ -46,12 +46,21 @@ export function AILectureModal({
   // Use tRPC mutation for grammar check
   const checkGrammarMutation = trpc.grammar.check.useMutation({
     onSuccess: (result) => {
-      console.log("Grammar check success:", result);
-      formatAndSetContent(result);
-      setIsLoading(false);
+      console.log("[AILecture] Grammar check success:", result);
+      try {
+        formatAndSetContent(result);
+        setIsLoading(false);
+      } catch (err) {
+        console.error("[AILecture] Error formatting content:", err);
+        setError(`格式化内容失败: ${err instanceof Error ? err.message : "未知错误"}`);
+        setIsLoading(false);
+      }
     },
     onError: (error) => {
-      console.error("Grammar check error:", error);
+      console.error("[AILecture] Grammar check error:", error);
+      console.error("[AILecture] Error message:", error.message);
+      console.error("[AILecture] Error data:", error.data);
+      
       setError(`获取AI精讲失败: ${error.message}`);
       setIsLoading(false);
 
@@ -88,6 +97,7 @@ export function AILectureModal({
   }, [visible]);
 
   const fetchAILecture = async () => {
+    console.log("[AILecture] Starting fetch for question:", question);
     setIsLoading(true);
     setError(null);
     setLectureContent("");
@@ -100,76 +110,74 @@ export function AILectureModal({
   };
 
   const formatAndSetContent = (result: any) => {
-    try {
-      // The tRPC client automatically unwraps the response
-      // So we receive the GrammarCheckResult directly
-      const grammarResult = result;
+    console.log("[AILecture] Formatting content with result:", result);
+    
+    // The tRPC client automatically unwraps the response
+    // So we receive the GrammarCheckResult directly
+    const grammarResult = result;
 
-      if (!grammarResult || typeof grammarResult !== 'object') {
-        console.error("Invalid result:", result);
-        throw new Error("Invalid response structure");
-      }
-
-      console.log("Grammar result:", grammarResult);
-
-      // Format the response as a detailed lecture
-      let formattedContent = `## ${tag}精讲\n\n`;
-      formattedContent += `**问题**: ${question}\n\n`;
-
-      // Add error analysis if there are errors
-      if (grammarResult.errors && grammarResult.errors.length > 0) {
-        formattedContent += `**错误分析**:\n`;
-        grammarResult.errors.forEach((error: any, index: number) => {
-          formattedContent += `\n${index + 1}. **${error.category}** (${error.severity})\n`;
-          formattedContent += `   - 错误: ${error.incorrect}\n`;
-          formattedContent += `   - 正确: ${error.correct}\n`;
-          formattedContent += `   - 解释: ${error.explanation}\n`;
-          if (error.pepReference) {
-            formattedContent += `   - 参考: ${error.pepReference}\n`;
-          }
-        });
-      } else {
-        // No errors - this is a correct sentence
-        formattedContent += `**✅ 很棒！这个句子在语法上是正确的。**\n\n`;
-      }
-
-      // Add suggestions
-      if (grammarResult.suggestions && grammarResult.suggestions.length > 0) {
-        formattedContent += `\n**学习建议**:\n`;
-        grammarResult.suggestions.forEach((suggestion: string) => {
-          formattedContent += `- ${suggestion}\n`;
-        });
-      }
-
-      // Add corrected sentence if it differs
-      if (grammarResult.corrected && grammarResult.corrected !== question) {
-        formattedContent += `\n**改正后的句子**:\n${grammarResult.corrected}\n`;
-      }
-
-      // Add score
-      if (grammarResult.overallScore !== undefined) {
-        formattedContent += `\n**得分**: ${grammarResult.overallScore}/100\n`;
-      }
-
-      // Add tips based on tag
-      formattedContent += `\n`;
-      switch (tag) {
-        case "考点":
-          formattedContent += `**💡 考点提示**: 这是中考/高考的高频考点，建议重点掌握。\n`;
-          break;
-        case "避坑":
-          formattedContent += `**⚠️ 避坑提示**: 这是学生容易犯错的地方，要特别注意。\n`;
-          break;
-        case "挑战":
-          formattedContent += `**🎯 挑战提示**: 这是进阶用法，掌握后能显著提升表达水平。\n`;
-          break;
-      }
-
-      setLectureContent(formattedContent);
-    } catch (err) {
-      console.error("Error formatting content:", err);
-      setError(`格式化内容失败: ${err instanceof Error ? err.message : "未知错误"}`);
+    if (!grammarResult || typeof grammarResult !== 'object') {
+      console.error("[AILecture] Invalid result:", result);
+      throw new Error("Invalid response structure");
     }
+
+    console.log("[AILecture] Grammar result:", grammarResult);
+
+    // Format the response as a detailed lecture
+    let formattedContent = `## ${tag}精讲\n\n`;
+    formattedContent += `**问题**: ${question}\n\n`;
+
+    // Add error analysis if there are errors
+    if (grammarResult.errors && grammarResult.errors.length > 0) {
+      formattedContent += `**错误分析**:\n`;
+      grammarResult.errors.forEach((error: any, index: number) => {
+        formattedContent += `\n${index + 1}. **${error.category}** (${error.severity})\n`;
+        formattedContent += `   - 错误: ${error.incorrect}\n`;
+        formattedContent += `   - 正确: ${error.correct}\n`;
+        formattedContent += `   - 解释: ${error.explanation}\n`;
+        if (error.pepReference) {
+          formattedContent += `   - 参考: ${error.pepReference}\n`;
+        }
+      });
+    } else {
+      // No errors - this is a correct sentence
+      formattedContent += `**✅ 很棒！这个句子在语法上是正确的。**\n\n`;
+    }
+
+    // Add suggestions
+    if (grammarResult.suggestions && grammarResult.suggestions.length > 0) {
+      formattedContent += `\n**学习建议**:\n`;
+      grammarResult.suggestions.forEach((suggestion: string) => {
+        formattedContent += `- ${suggestion}\n`;
+      });
+    }
+
+    // Add corrected sentence if it differs
+    if (grammarResult.corrected && grammarResult.corrected !== question) {
+      formattedContent += `\n**改正后的句子**:\n${grammarResult.corrected}\n`;
+    }
+
+    // Add score
+    if (grammarResult.overallScore !== undefined) {
+      formattedContent += `\n**得分**: ${grammarResult.overallScore}/100\n`;
+    }
+
+    // Add tips based on tag
+    formattedContent += `\n`;
+    switch (tag) {
+      case "考点":
+        formattedContent += `**💡 考点提示**: 这是中考/高考的高频考点，建议重点掌握。\n`;
+        break;
+      case "避坑":
+        formattedContent += `**⚠️ 避坑提示**: 这是学生容易犯错的地方，要特别注意。\n`;
+        break;
+      case "挑战":
+        formattedContent += `**🎯 挑战提示**: 这是进阶用法，掌握后能显著提升表达水平。\n`;
+        break;
+    }
+
+    console.log("[AILecture] Formatted content set successfully");
+    setLectureContent(formattedContent);
   };
 
   const animatedStyle = useAnimatedStyle(() => ({
