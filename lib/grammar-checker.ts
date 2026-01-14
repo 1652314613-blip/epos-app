@@ -28,7 +28,7 @@ export interface GrammarCheckResult {
 }
 
 /**
- * Check grammar using OpenAI API
+ * Check grammar using tRPC API
  */
 export async function checkGrammar(
   sentence: string,
@@ -41,17 +41,21 @@ export async function checkGrammar(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        sentence,
-        gradeLevel,
+        json: {
+          sentence,
+          gradeLevel,
+        },
       }),
+      credentials: "include",
     });
 
     if (!response.ok) {
-      throw new Error("Failed to check grammar");
+      throw new Error(`Failed to check grammar: ${response.status} ${response.statusText}`);
     }
 
     const data = await response.json();
-    return data.result.data;
+    // tRPC returns { result: { data: { json: {...} } } }
+    return data.result.data.json;
   } catch (error) {
     console.error("Grammar check error:", error);
     throw error;
