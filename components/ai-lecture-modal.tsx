@@ -43,6 +43,30 @@ export function AILectureModal({
   const slideUp = useSharedValue(0);
   const backdropOpacity = useSharedValue(0);
 
+  // Use tRPC mutation for grammar check
+  const checkGrammarMutation = trpc.grammar.check.useMutation({
+    onSuccess: (result) => {
+      console.log("Grammar check success:", result);
+      formatAndSetContent(result);
+      setIsLoading(false);
+    },
+    onError: (error) => {
+      console.error("Grammar check error:", error);
+      setError(`获取AI精讲失败: ${error.message}`);
+      setIsLoading(false);
+
+      // Provide fallback content
+      let fallbackContent = `## ${tag}精讲\n\n`;
+      fallbackContent += `**问题**: ${question}\n\n`;
+      fallbackContent += `**说明**: AI服务暂时不可用，但您可以：\n`;
+      fallbackContent += `1. 查看语法中心的相关知识点\n`;
+      fallbackContent += `2. 查看错题本中的类似问题\n`;
+      fallbackContent += `3. 稍后重新尝试\n`;
+
+      setLectureContent(fallbackContent);
+    },
+  });
+
   // Fetch AI lecture when modal becomes visible
   useEffect(() => {
     if (visible) {
@@ -68,36 +92,21 @@ export function AILectureModal({
     setError(null);
     setLectureContent("");
 
+    // Call tRPC mutation
+    checkGrammarMutation.mutate({
+      sentence: question,
+      gradeLevel: 9,
+    });
+  };
+
+  const formatAndSetContent = (result: any) => {
     try {
-      // Call grammar check API using tRPC protocol
-      // tRPC mutations use POST with JSON body
-      const response = await fetch("/api/trpc/grammar.check", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          json: {
-            sentence: question,
-            gradeLevel: 9,
-          },
-        }),
-      });
+      // Extract the grammar result
+      // The result structure depends on what the API returns
+      const grammarResult = result.json || result;
 
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      console.log("AI Lecture API Response:", JSON.stringify(data, null, 2));
-
-      // Handle tRPC response format
-      // The response structure is: { result: { data: { json: {...} } } }
-      const grammarResult = data.result?.data?.json;
-      
       if (!grammarResult) {
-        console.error("Invalid response structure:", data);
-        throw new Error("Invalid API response structure");
+        throw new Error("Invalid response structure");
       }
 
       // Format the response as a detailed lecture
@@ -155,20 +164,8 @@ export function AILectureModal({
 
       setLectureContent(formattedContent);
     } catch (err) {
-      console.error("Error fetching AI lecture:", err);
-      setError(`获取AI精讲失败: ${err instanceof Error ? err.message : "未知错误"}`);
-
-      // Provide fallback content
-      let fallbackContent = `## ${tag}精讲\n\n`;
-      fallbackContent += `**问题**: ${question}\n\n`;
-      fallbackContent += `**说明**: AI服务暂时不可用，但您可以：\n`;
-      fallbackContent += `1. 查看语法中心的相关知识点\n`;
-      fallbackContent += `2. 查看错题本中的类似问题\n`;
-      fallbackContent += `3. 稍后重新尝试\n`;
-
-      setLectureContent(fallbackContent);
-    } finally {
-      setIsLoading(false);
+      console.error("Error formatting content:", err);
+      setError(`格式化内容失败: ${err instanceof Error ? err.message : "未知错误"}`);
     }
   };
 
