@@ -71,19 +71,20 @@ export function AILectureModal({
     try {
       // Call existing grammar check API to get AI explanation
       // We'll use a prompt that focuses on detailed explanation
-      const response = await fetch("/api/trpc/grammar.check", {
-        method: "POST",
+      const response = await fetch("/api/trpc/grammar.check?input=" + encodeURIComponent(JSON.stringify({
+        json: {
+          sentence: question,
+          gradeLevel: 9,
+        }
+      })), {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          sentence: question,
-          gradeLevel: 9,
-        }),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch AI lecture");
+        throw new Error("Failed to fetch AI lecture: " + response.status);
       }
 
       const data = await response.json();
@@ -92,16 +93,24 @@ export function AILectureModal({
       let formattedContent = `## ${tag}精讲\n\n`;
       formattedContent += `**问题**: ${question}\n\n`;
 
-      if (data.result && data.result.explanation) {
-        formattedContent += `**详细解析**:\n${data.result.explanation}\n\n`;
+      // Handle tRPC response format
+      const result = data.result || data;
+      
+      if (result && result.explanation) {
+        formattedContent += `**详细解析**:\n${result.explanation}\n\n`;
       }
 
-      if (data.result && data.result.suggestions) {
-        formattedContent += `**改进建议**:\n${data.result.suggestions}\n\n`;
+      if (result && result.suggestions) {
+        formattedContent += `**改进建议**:\n${result.suggestions}\n\n`;
       }
 
-      if (data.result && data.result.examples) {
-        formattedContent += `**相关例句**:\n${data.result.examples}\n\n`;
+      if (result && result.examples) {
+        formattedContent += `**相关例句**:\n${result.examples}\n\n`;
+      }
+      
+      // If no detailed response, use the analysis
+      if (!result.explanation && result.analysis) {
+        formattedContent += `**分析**:\n${result.analysis}\n\n`;
       }
 
       // Add tips based on tag
