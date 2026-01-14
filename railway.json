@@ -4,7 +4,7 @@
     "builder": "dockerfile"
   },
   "deploy": {
-    "startCommand": "node dist/index.js",
+    "startCommand": "npm start",
     "restartPolicyMaxRetries": 5
   }
 }
