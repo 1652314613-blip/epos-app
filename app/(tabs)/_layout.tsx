@@ -25,6 +25,14 @@ export default function TabLayout() {
           backgroundColor: colors.background,
           borderTopColor: colors.border,
           borderTopWidth: 0.5,
+          display: Platform.OS === "web" ? "flex" : "flex",
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          marginTop: 4,
+        },
+        tabBarIconStyle: {
+          marginBottom: 0,
         },
       }}
     >
