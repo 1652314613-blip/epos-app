@@ -13880,9 +13880,9 @@ var init_init_grammar_db = __esm({
 
 // server/_core/index.ts
 var import_config = require("dotenv/config");
-var import_express = __toESM(require("express"));
+var import_express = __toESM(require("express"), 1);
 var import_http4 = require("http");
-var import_net = __toESM(require("net"));
+var import_net = __toESM(require("net"), 1);
 var import_express2 = require("@trpc/server/adapters/express");
 
 // shared/const.ts
@@ -31495,7 +31495,7 @@ async function notifyOwner(payload) {
 
 // server/_core/trpc.ts
 var import_server2 = require("@trpc/server");
-var import_superjson = __toESM(require_dist());
+var import_superjson = __toESM(require_dist(), 1);
 var t = import_server2.initTRPC.context().create({
   transformer: import_superjson.default
 });
@@ -33752,8 +33752,8 @@ var polishRouter = router({
 var import_server3 = require("@trpc/server");
 
 // server/services/apple-auth-service.ts
-var import_jsonwebtoken = __toESM(require("jsonwebtoken"));
-var import_jwks_rsa = __toESM(require("jwks-rsa"));
+var import_jsonwebtoken = __toESM(require("jsonwebtoken"), 1);
+var import_jwks_rsa = __toESM(require("jwks-rsa"), 1);
 var APPLE_JWKS_URI = "https://appleid.apple.com/auth/keys";
 var client = (0, import_jwks_rsa.default)({
   jwksUri: APPLE_JWKS_URI,
