@@ -70,6 +70,25 @@ async function retryWithBackoff<T>(
  */
 function fallbackGrammarCheck(sentence: string): GrammarCheckResult {
   console.log("[Fallback] Using basic grammar check");
+  // 检查是否是学习问题（包含中文）
+  const chineseRegex = /[\u4e00-\u9fff]/g;
+  const isLearningQuestion = chineseRegex.test(sentence);
+  console.log("[Fallback] Is learning question:", isLearningQuestion);
+  
+  // 学习问题的降级方案
+  if (isLearningQuestion) {
+    return {
+      original: sentence,
+      corrected: sentence,
+      errors: [],
+      overallScore: 100,
+      suggestions: [
+        "很好！你在主动学习英语语法，这是一个很棒的习惯。",
+        "建议你多查看教材中的相关章节，或者向老师请教具体的例子，这样会学得更快！",
+        "如果你有具体的英文句子需要检查，我可以帮你分析哦！"
+      ],
+    };
+  }
   
   const errors: GrammarError[] = [];
   
